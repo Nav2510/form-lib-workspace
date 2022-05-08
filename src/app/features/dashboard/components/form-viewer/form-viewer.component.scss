@@ -1,0 +1,9 @@
+.flw-dashboard {
+  .flw-height {
+      height: calc(100vh - 62px);
+      overflow-y: auto;
+  }
+  .flw-form-viewer {
+    padding: 20px;
+  }
+}

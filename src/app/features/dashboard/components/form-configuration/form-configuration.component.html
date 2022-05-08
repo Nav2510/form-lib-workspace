@@ -1,0 +1,20 @@
+<div class="flw-form-config">
+  <div class="flw-config-header">
+    Form
+  </div>
+  <div class="flw-config-list-wrapper">
+    <ng-container *ngFor="let configItem of formConfig">
+      <app-config-list-item [label]="configItem.label"></app-config-list-item>
+    </ng-container>
+  </div>
+  <div class="flw-form-config-wrapper">
+    <div class="flw-config-header">
+      Components
+    </div>
+    <div class="flw-config-list-wrapper">
+      <ng-container *ngFor="let configItem of componentConfig">
+        <app-config-list-item [label]="configItem.label"></app-config-list-item>
+      </ng-container>
+    </div>
+  </div>
+</div>

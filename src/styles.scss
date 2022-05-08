@@ -1,0 +1,29 @@
+// Font styles
+$font-iceland: 'Iceland', cursive;
+
+// Color palette
+$green-900: #006C52;
+
+$darkblue-900: #0A0F2E;
+$darkblue-600: #252D4A;
+
+$blue-900: #3452B4;
+$blue-500: #667EFC;
+$blue-200: #AFB3D4;
+
+$black-900: #424242;
+$black-700: #B1B1B1;
+$black-500: #D8D8D8;
+$black-400: #D6D6D6;
+$black-300: #E5E5E5;
+$black-200: #ECECEC;
+$black-000: #FFFFFF;
+
+// Global styles
+html, body { height: 100%; }
+body { 
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $black-300;
+  color: $black-900;
+}
