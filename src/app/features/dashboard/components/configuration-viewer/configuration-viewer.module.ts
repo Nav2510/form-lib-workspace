@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { ConfigurationViewerComponent } from './configuration-viewer.component';
 
 @NgModule({
