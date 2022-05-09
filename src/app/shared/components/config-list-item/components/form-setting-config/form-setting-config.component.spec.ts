@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdvanceConfigComponent } from './advance-config.component';
+import { FormSettingConfigComponent } from './form-setting-config.component';
 
-describe('AdvanceConfigComponent', () => {
-  let component: AdvanceConfigComponent;
-  let fixture: ComponentFixture<AdvanceConfigComponent>;
+describe('FormSettingConfigComponent', () => {
+  let component: FormSettingConfigComponent;
+  let fixture: ComponentFixture<FormSettingConfigComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdvanceConfigComponent ]
+      declarations: [ FormSettingConfigComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdvanceConfigComponent);
+    fixture = TestBed.createComponent(FormSettingConfigComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

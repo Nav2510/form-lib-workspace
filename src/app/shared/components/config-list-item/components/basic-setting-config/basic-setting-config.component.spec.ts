@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DependencyConfigComponent } from './dependency-config.component';
+import { BasicSettingConfigComponent } from './basic-setting-config.component';
 
-describe('DependencyConfigComponent', () => {
-  let component: DependencyConfigComponent;
-  let fixture: ComponentFixture<DependencyConfigComponent>;
+describe('BasicSettingConfigComponent', () => {
+  let component: BasicSettingConfigComponent;
+  let fixture: ComponentFixture<BasicSettingConfigComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DependencyConfigComponent ]
+      declarations: [ BasicSettingConfigComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DependencyConfigComponent);
+    fixture = TestBed.createComponent(BasicSettingConfigComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
