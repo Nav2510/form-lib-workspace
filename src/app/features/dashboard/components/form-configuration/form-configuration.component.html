@@ -13,7 +13,7 @@
     </div>
     <div class="flw-config-list-wrapper">
       <ng-container *ngFor="let configItem of componentConfig">
-        <app-config-list-item [label]="configItem.label"></app-config-list-item>
+        <app-config-list-item [label]="configItem.label" [iconSrc]="configItem.src"></app-config-list-item>
       </ng-container>
     </div>
   </div>

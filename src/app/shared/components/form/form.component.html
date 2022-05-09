@@ -1,0 +1,37 @@
+<div *ngIf="form && configList" class="flw-form-container">
+  <form [formGroup]="form" class="flw-form">
+    <ng-container *ngFor="let configItem of configList">
+      <ng-container [ngSwitch]="configItem.type">
+        <!-- Input -->
+        <div class="flw-form-field" *ngSwitchCase="'input'">
+            <label [for]="configItem.name">{{configItem.label}}</label>
+            <div class="form-field-wrapper">
+              <mat-form-field appearance="outline">
+                <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name" placeholder="{{configItem.placeholder}}">
+              </mat-form-field>
+            </div>
+        </div>
+        <!-- Checkbox -->
+        <div  class="flw-form-field" *ngSwitchCase="'checkbox'">
+          <mat-checkbox labelPosition="before" [formControlName]="configItem.name">
+            {{configItem.label}}
+          </mat-checkbox>
+        </div>
+        <!-- Dropdown -->
+        <div class="flw-form-field" *ngSwitchCase="'dropdown'">
+            <label [for]="configItem.name">{{configItem.label}}</label>
+            <div class="form-field-wrapper">
+              <mat-form-field appearance="outline">
+                <mat-select  [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
+                  <mat-option *ngFor="let option of configItem.options" [value]="option.value">
+                    {{option.label}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+        </div>
+        <div class="flw-form-separator" *ngIf="configItem.saparator"></div>
+      </ng-container>
+    </ng-container>
+  </form>
+</div>
