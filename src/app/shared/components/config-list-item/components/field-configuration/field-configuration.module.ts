@@ -7,6 +7,9 @@ import { AdvanceSettingConfigModule } from '../advance-setting-config/advance-se
 import { BasicSettingConfigModule } from '../basic-setting-config/basic-setting-config.module';
 import { FieldConfigurationComponent } from './field-configuration.component';
 import { DependencySettingConfigModule } from '../dependency-setting-config/dependency-setting-config.module';
+import { FormSettingConfigModule } from '../form-setting-config/form-setting-config.module';
+import { SectionSettingConfigModule } from '../section-setting-config/section-setting-config.module';
+import { FormDependencySettingConfigModule } from '../form-dependency-setting-config/form-dependency-setting-config.module';
 
 @NgModule({
   declarations: [FieldConfigurationComponent],
@@ -15,7 +18,10 @@ import { DependencySettingConfigModule } from '../dependency-setting-config/depe
     BasicSettingConfigModule,
     CommonModule,
     DependencySettingConfigModule,
+    FormDependencySettingConfigModule,
+    FormSettingConfigModule,
     MatTabsModule,
+    SectionSettingConfigModule,
   ],
   exports: [FieldConfigurationComponent],
 })

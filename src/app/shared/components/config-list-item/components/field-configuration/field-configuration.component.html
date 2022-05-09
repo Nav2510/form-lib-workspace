@@ -1,9 +1,26 @@
 <mat-tab-group>
   <mat-tab [label]="tabs[type][0]">
-    <app-basic-setting-config></app-basic-setting-config>
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="configType.Appearance">
+        <app-form-setting-config></app-form-setting-config>
+      </ng-container>
+      <ng-container *ngSwitchCase="configType.Dependency">
+        <app-form-dependency-setting-config></app-form-dependency-setting-config>
+      </ng-container>
+      <ng-container *ngSwitchCase="configType.Field">
+        <app-basic-setting-config></app-basic-setting-config>
+      </ng-container>
+    </ng-container>
   </mat-tab>
   <mat-tab [label]="tabs[type][1]">
-    <app-advance-setting-config></app-advance-setting-config>
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="configType.Appearance">
+        <app-section-setting-config></app-section-setting-config>
+      </ng-container>
+      <ng-container *ngSwitchCase="configType.Field">
+          <app-advance-setting-config></app-advance-setting-config>
+      </ng-container>
+    </ng-container>
   </mat-tab>
   <mat-tab [label]="tabs[type][2]" disabled>
     <app-dependency-setting-config></app-dependency-setting-config>

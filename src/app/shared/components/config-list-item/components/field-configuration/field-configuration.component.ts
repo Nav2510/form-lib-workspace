@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConfigType } from '../../../../models/config-type.model';
+import { ConfigType, ConfigTypeEnum } from '../../../../models/config-type.model';
 
 @Component({
   selector: 'app-field-configuration',
@@ -13,6 +13,7 @@ export class FieldConfigurationComponent implements OnInit {
     field: ['Basic', 'Advanced', 'Dependencies']
   }
   @Input() type: ConfigType = 'field';
+  readonly configType = ConfigTypeEnum;
   constructor() { }
 
   ngOnInit(): void {
