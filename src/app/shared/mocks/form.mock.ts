@@ -24,7 +24,6 @@ export const CONFIG: FormConfig = {
         new Input({
           subType: 'text',
           field: new FormField({
-            appearance: 'standard',
             type: 'input',
             color: 'accent',
             name: 'name',
@@ -38,7 +37,6 @@ export const CONFIG: FormConfig = {
         }),
         new Input({
           field: new FormField({
-            appearance: 'standard',
             label: 'Age',
             color: 'primary',
             type: 'input',
@@ -75,7 +73,6 @@ export const CONFIG: FormConfig = {
           }),
         }),
         new FormField<string>({
-          appearance: 'standard',
           color: 'accent',
           type: 'textarea',
           name: 'comment',

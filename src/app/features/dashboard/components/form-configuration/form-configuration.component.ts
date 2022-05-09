@@ -20,18 +20,23 @@ export class FormConfigurationComponent implements OnInit {
   componentConfig = [
     {
       label: 'Input',
+      src: '../../../../assets/icons/input.svg',
     },
     {
       label: 'Textarea',
+      src: '../../../../assets/icons/textarea.svg',
     },
     {
       label: 'Checkbox',
+      src: '../../../../assets/icons/checkbox.svg',
     },
     {
       label: 'Radio',
+      src: '../../../../assets/icons/radio.svg',
     },
     {
       label: 'Dropdown',
+      src: '../../../../assets/icons/dropdown.svg',
     },
   ];
   constructor() {}

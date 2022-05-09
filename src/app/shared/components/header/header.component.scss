@@ -6,13 +6,19 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 14px;
+  box-shadow: 0px 4px 5px $black-900;
+  position: relative;
+  z-index: 10;
+
   .flw-logo-wrapper {
     display: flex;
     align-items: center;
+
     img {
       width: 40px;
       height: 40px;
     }
+
     .flw-site-name {
       font-family: $font-iceland;
       font-size: 28px;

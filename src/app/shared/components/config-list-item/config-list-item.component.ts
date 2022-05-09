@@ -8,5 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ConfigListItemComponent {
   @Input() label: string = '';
-  panelOpenState = false;
+  @Input() iconSrc: string | null = null;
 }

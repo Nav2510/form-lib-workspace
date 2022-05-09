@@ -20,10 +20,36 @@ $black-200: #ECECEC;
 $black-000: #FFFFFF;
 
 // Global styles
-html, body { height: 100%; }
-body { 
+html,
+body {
+  height: 100%;
+}
+
+body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: $black-300;
   color: $black-900;
+}
+
+// MatExpansionPanel
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+
+//  MatTabGroup
+.mat-tab-label {
+  padding: 0px 20px !important;
+  min-width: fit-content !important;
+}
+
+.flw-form {
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.7em 0 !important;
+    border-top: 0.44375em solid transparent !important;
+  }
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
 }

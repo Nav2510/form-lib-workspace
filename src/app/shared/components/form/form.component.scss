@@ -1,0 +1,17 @@
+@import '../../../../styles';
+.flw-form-container {
+  .flw-form {
+    .flw-form-field {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .form-field-wrapper {
+        font-size: 12px;
+      }
+    }
+    .flw-form-separator {
+      border-bottom: 1px solid $black-700;
+      margin: 10px 0px;
+    }
+  }
+}
