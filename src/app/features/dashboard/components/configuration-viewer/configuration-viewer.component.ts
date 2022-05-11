@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { CONFIG } from '../../../../shared/mocks/form.mock';
+import { ObjectMapperService } from '../../../../shared/services/object-mapper.service';
 
 @Component({
   selector: 'app-configuration-viewer',
   templateUrl: './configuration-viewer.component.html',
-  styleUrls: ['./configuration-viewer.component.scss']
+  styleUrls: ['./configuration-viewer.component.scss'],
 })
-export class ConfigurationViewerComponent implements OnInit {
-  CONFIG = CONFIG
-  constructor() { }
+export class ConfigurationViewerComponent {
+  config$ = this.mapperService.masterConfig$;
 
-  ngOnInit(): void {
-  }
-
+  constructor(private mapperService: ObjectMapperService) {}
 }

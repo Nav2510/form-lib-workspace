@@ -1,4 +1,4 @@
-import { FormModel } from "../../../../../../../../shared/components/form/models/form.model";
+import { FormModel } from "../../../../../../../../../shared/components/form/models/form.model";
 
 export const FORM_SETTING_CONFIG: FormModel[] = [
   {
@@ -8,7 +8,7 @@ export const FORM_SETTING_CONFIG: FormModel[] = [
     type: 'input',
   },
   {
-    label: 'Form Appearance',
+    label: 'Theme Appearance',
     name: 'parentConfig.appearance',
     type: 'dropdown',
     placeholder: "Overridden from field's appearance.",

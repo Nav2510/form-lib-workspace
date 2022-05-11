@@ -1,7 +1,7 @@
-import { ConfigMenu } from "../../../../shared/models/config-menu.model";
+import { ConfigMenuModel } from "../../../../shared/models/config-menu.model";
 import { ConfigTypeEnum } from "../../../../shared/models/config-type.model";
 
-export const FORM_CONFIG_MENU: ConfigMenu[] = [
+export const FORM_CONFIG_MENU: ConfigMenuModel[] = [
   {
     label: 'Appearance',
     src: '../../../../assets/icons/appearance.svg',
@@ -13,7 +13,7 @@ export const FORM_CONFIG_MENU: ConfigMenu[] = [
     configType: ConfigTypeEnum.Dependency,
   },
 ];
-export const FIELD_CONFIG_MENU: ConfigMenu[] = [
+export const FIELD_CONFIG_MENU: ConfigMenuModel[] = [
   {
     label: 'Input',
     src: '../../../../assets/icons/input.svg',

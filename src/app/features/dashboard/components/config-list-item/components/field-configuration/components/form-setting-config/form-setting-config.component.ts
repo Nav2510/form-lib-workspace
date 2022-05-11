@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-import { FORM_SETTING_CONFIG } from './form-setting-config.constant';
+import { ObjectMapperService } from '../../../../../../../../shared/services/object-mapper.service';
+import { FORM_SETTING_CONFIG } from './contants/form-setting-config.constant';
+import { FormSettingModel } from './models/form-setting.model';
 
 @Component({
   selector: 'app-form-setting-config',
@@ -10,7 +12,16 @@ import { FORM_SETTING_CONFIG } from './form-setting-config.constant';
 export class FormSettingConfigComponent {
   FORM_SETTING_CONFIG = FORM_SETTING_CONFIG;
 
-  onValueChanges(value: any): void {
-    console.log(value)
+  constructor(private mapperService: ObjectMapperService) {}
+
+  onValueChanges(value: {[key: string]: string}): void {
+    const createdObj: FormSettingModel = {
+      header: value['header'],
+      parentConfig: {
+        appearance: value['parentConfig.appearance'],
+        color: value['parentConfig.color'],
+      },
+    };
+    this.mapperService.mapConfiguration(createdObj);
   }
 }

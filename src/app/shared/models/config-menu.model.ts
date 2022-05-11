@@ -1,6 +1,6 @@
 import { ConfigTypeEnum } from "./config-type.model";
 
-export interface ConfigMenu {
+export interface ConfigMenuModel {
   configType: ConfigTypeEnum;
   label: string;
   src: string;

@@ -1,6 +1,7 @@
 import { ParentConfig, Input, FormField, FormConfig } from 'ngx-form-lib';
 
-export const CONFIG: FormConfig = {
+
+export const MASTER_CONFIG: FormConfig = {
   header: 'Form Header',
   parentConfig: new ParentConfig({
     appearance: 'outline',
