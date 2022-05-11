@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { FormConfigurationComponent } from './form-configuration.component';
-import { ConfigListItemModule } from '../../../../shared/components/config-list-item/config-list-item.module';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { ConfigListItemModule } from '../config-list-item/config-list-item.module';
 
 @NgModule({
   declarations: [FormConfigurationComponent],

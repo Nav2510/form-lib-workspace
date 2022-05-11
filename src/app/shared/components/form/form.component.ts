@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 
 import { FormModel } from './models/form.model';
 
@@ -8,13 +9,18 @@ import { FormModel } from './models/form.model';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent implements OnInit {
-  form: FormGroup | null = null;
+export class FormComponent implements OnInit, OnDestroy {
   @Input() configList: FormModel[] = [];
+  @Output() valueChanges = new EventEmitter<any>();
+  
+  form: FormGroup | null = null;
+  destroy$ = new Subject<void>();
 
   ngOnInit(): void {
     this.form = this.initForm(this.configList)
-    console.log(this.configList, this.form)
+    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
+      this.valueChanges.next(value);
+    });
   }
 
   initForm(config: FormModel[]): FormGroup {
@@ -23,5 +29,10 @@ export class FormComponent implements OnInit {
       obj[configItem.name] = new FormControl(configItem.value)
     })
     return new FormGroup(obj)
+  }
+  
+  ngOnDestroy(): void {
+    this.destroy$.next(undefined);
+    this.destroy$.complete();
   }
 }

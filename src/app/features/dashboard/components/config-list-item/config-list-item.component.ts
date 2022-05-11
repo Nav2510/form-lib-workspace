@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { ConfigType } from '../../models/config-type.model';
+import { ConfigType } from '../../../../shared/models/config-type.model';
+
 
 @Component({
   selector: 'app-config-list-item',

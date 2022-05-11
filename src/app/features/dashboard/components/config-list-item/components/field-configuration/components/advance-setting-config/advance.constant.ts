@@ -1,4 +1,4 @@
-import { FormModel } from "../../../form/models/form.model";
+import { FormModel } from "../../../../../../../../shared/components/form/models/form.model";
 
 export const ADVANCE_CONFIG: FormModel[] = [
   {

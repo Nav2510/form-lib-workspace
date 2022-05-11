@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConfigType, ConfigTypeEnum } from '../../../../models/config-type.model';
+
+import { ConfigType, ConfigTypeEnum } from '../../../../../../shared/models/config-type.model';
 
 @Component({
   selector: 'app-field-configuration',
