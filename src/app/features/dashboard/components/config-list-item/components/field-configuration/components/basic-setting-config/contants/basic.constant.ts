@@ -1,4 +1,4 @@
-import { FormModel } from "../../../../../../../../shared/components/form/models/form.model";
+import { FormModel } from "../../../../../../../../../shared/components/form/models/form.model";
 
 export const BASIC_CONFIG: FormModel[] = [
   {
@@ -6,27 +6,29 @@ export const BASIC_CONFIG: FormModel[] = [
     name: 'label',
     subType: 'text',
     type: 'input',
-    placeholder: 'Enter the question here.'
+    placeholder: 'Enter the question here.',
   },
   {
     label: 'Name',
     name: 'name',
     subType: 'text',
     type: 'input',
-    placeholder: 'Will be used as field name.'
+    placeholder: 'Will be used as field name.',
+    required: true,
   },
   {
     label: 'Value',
     name: 'value',
     subType: 'text',
     type: 'input',
-    placeholder: 'Will be set as default value.'
+    placeholder: 'Will be set as default value.',
   },
   {
     label: 'Sub-type',
     name: 'subType',
     type: 'dropdown',
     placeholder: 'Select subtype for input.',
+    required: true,
     options: [
       {
         label: 'Button',
@@ -56,20 +58,13 @@ export const BASIC_CONFIG: FormModel[] = [
         label: 'Text',
         value: 'text',
       },
-      {
-        label: 'Col-1',
-        value: 'ngf-col-1',
-      },
-      {
-        label: 'Fit-content',
-        value: 'ngf-fit-content',
-      },
     ],
   },
   {
     label: 'Classes',
     name: 'classes',
     type: 'dropdown',
+    required: true,
     placeholder: 'Select classes for layout',
     multi: true,
     options: [
@@ -116,12 +111,17 @@ export const BASIC_CONFIG: FormModel[] = [
     name: 'placeholder',
     subType: 'text',
     type: 'input',
-    placeholder: 'Placeholder for field'
+    placeholder: 'Placeholder for field',
   },
   {
     label: 'Required Field',
     name: 'required',
     subType: 'text',
     type: 'checkbox',
+  },
+  {
+    label: 'Add Field',
+    name: '_submit_',
+    type: 'submit',
   },
 ];

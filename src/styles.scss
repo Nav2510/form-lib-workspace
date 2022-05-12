@@ -11,7 +11,8 @@ $blue-900: #3452B4;
 $blue-500: #667EFC;
 $blue-200: #AFB3D4;
 
-$black-900: #424242;
+$black-900: #000000;
+$black-800: #424242;
 $black-700: #B1B1B1;
 $black-500: #D8D8D8;
 $black-400: #D6D6D6;
@@ -29,7 +30,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: $black-300;
-  color: $black-900;
+  color: $black-800;
 }
 
 // MatExpansionPanel
@@ -49,9 +50,18 @@ body {
     padding: 0.7em 0 !important;
     border-top: 0.44375em solid transparent !important;
   }
+
   .mat-form-field-wrapper {
     padding: 0;
     background-color: $black-000;
     border-radius: 5px;
   }
+}
+
+.flw-add-btn {
+  font-size: 12px;
+  height: 28px;
+  border-radius: 0px !important;
+  display: flex !important;
+  align-items: center;
 }

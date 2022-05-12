@@ -1,6 +1,7 @@
 export enum FormTypeEnum {
   Input = 'input',
   Checkbox = 'checkbox',
-  Dropdown = 'dropdown'
+  Dropdown = 'dropdown',
+  Submit = 'submit',
 }
-export type FormType = 'input' | 'checkbox' | 'dropdown';
+export type FormType = 'input' | 'checkbox' | 'dropdown' | 'submit';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ADVANCE_CONFIG } from './advance.constant';
 
@@ -8,6 +8,8 @@ import { ADVANCE_CONFIG } from './advance.constant';
   styleUrls: ['./advance-setting-config.component.scss'],
 })
 export class AdvanceSettingConfigComponent implements OnInit {
+  @Input() controlType: string | null = null;
+
   ADVANCE_CONFIG = ADVANCE_CONFIG;
   constructor() {}
 

@@ -1,34 +1,43 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+import { FormResponseModel } from './models/form-response.model';
 
 import { FormModel } from './models/form.model';
+import { FormService } from './services/form.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent implements OnInit, OnDestroy {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() configList: FormModel[] = [];
-  @Output() valueChanges = new EventEmitter<any>();
+  @Output() valueChanges = new EventEmitter<FormResponseModel>();
+  @Output() formSubmit = new EventEmitter<void>();
   
   form: FormGroup | null = null;
   destroy$ = new Subject<void>();
 
+  constructor(private formService: FormService) {}
+
   ngOnInit(): void {
-    this.form = this.initForm(this.configList)
-    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      this.valueChanges.next(value);
+    this.form?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
+      this.form ? this.valueChanges.next({value: value, form: this.form}) : '';
     });
   }
 
-  initForm(config: FormModel[]): FormGroup {
-    const obj: {[key: string] : FormControl } = {};
-    config.forEach((configItem) => {
-      obj[configItem.name] = new FormControl(configItem.value)
-    })
-    return new FormGroup(obj)
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['configList'].currentValue) {
+      this.form = this.formService.initForm(changes['configList'].currentValue);
+    }
+  }
+
+  onSubmit(): void {
+    if (this.form?.invalid) {
+      return this.form.markAllAsTouched();
+    }
+    this.formSubmit.emit();
   }
   
   ngOnDestroy(): void {

@@ -5,5 +5,5 @@
       <img *ngIf="!!config.src" [src]="config.src" [alt]="config.label">
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <app-field-configuration [type]="configType"></app-field-configuration>
+  <app-field-configuration [type]="configType" [controlType]="config.type ? config.type : null"></app-field-configuration>
 </mat-expansion-panel>

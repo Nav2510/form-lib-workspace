@@ -55,7 +55,7 @@ export const ADVANCE_CONFIG: FormModel[] = [
     subType: 'text',
     type: 'input',
     placeholder: 'Help user what to fill.',
-    saparator: true,
+    separator: true,
   },
 
   {
@@ -80,7 +80,7 @@ export const ADVANCE_CONFIG: FormModel[] = [
     type: 'input',
     subType: 'text',
     placeholder: 'Value for prefix',
-    saparator: true,
+    separator: true,
   },
   {
     label: 'Suffix Type',

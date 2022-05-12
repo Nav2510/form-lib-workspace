@@ -1,6 +1,12 @@
+@import '../../../../../../../../../styles';
+
 .flw-basic-setting-config {
   font-size: 13px;
   padding: 15px 10px;
   line-height: 18px;
-  color: #000000;
+  color: $black-900;
+  .flw-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

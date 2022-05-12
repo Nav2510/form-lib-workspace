@@ -6,6 +6,7 @@ export const FORM_SETTING_CONFIG: FormModel[] = [
     name: 'header',
     subType: 'text',
     type: 'input',
+    placeholder: 'Enter heading of form.'
   },
   {
     label: 'Theme Appearance',

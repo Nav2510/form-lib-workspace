@@ -13,5 +13,9 @@
       border-bottom: 1px solid $black-700;
       margin: 10px 0px;
     }
+    .flw-btn-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 }

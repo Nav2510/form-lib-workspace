@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormResponseModel } from '../../../../../../../../shared/components/form/models/form-response.model';
 
 import { ObjectMapperService } from '../../../../../../../../shared/services/object-mapper.service';
 import { FORM_SETTING_CONFIG } from './contants/form-setting-config.constant';
@@ -14,7 +15,7 @@ export class FormSettingConfigComponent {
 
   constructor(private mapperService: ObjectMapperService) {}
 
-  onValueChanges(value: {[key: string]: string}): void {
+  onValueChanges({value}: FormResponseModel): void {
     const createdObj: FormSettingModel = {
       header: value['header'],
       parentConfig: {

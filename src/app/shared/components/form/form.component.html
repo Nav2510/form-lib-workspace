@@ -4,7 +4,9 @@
       <ng-container [ngSwitch]="configItem.type">
         <!-- Input -->
         <div class="flw-form-field" *ngSwitchCase="'input'">
-            <label [for]="configItem.name">{{configItem.label}}</label>
+            <label [for]="configItem.name">{{configItem.label}}
+              <span *ngIf="configItem.required">*</span>
+            </label>
             <div class="form-field-wrapper">
               <mat-form-field appearance="outline">
                 <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name" placeholder="{{configItem.placeholder}}">
@@ -15,11 +17,14 @@
         <div  class="flw-form-field" *ngSwitchCase="'checkbox'">
           <mat-checkbox labelPosition="before" [formControlName]="configItem.name">
             {{configItem.label}}
+            <span *ngIf="configItem.required">*</span>
           </mat-checkbox>
         </div>
         <!-- Dropdown -->
         <div class="flw-form-field" *ngSwitchCase="'dropdown'">
-            <label [for]="configItem.name">{{configItem.label}}</label>
+            <label [for]="configItem.name">{{configItem.label}}
+              <span *ngIf="configItem.required">*</span>
+            </label>
             <div class="form-field-wrapper">
               <mat-form-field appearance="outline">
                 <mat-select  [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
@@ -30,7 +35,11 @@
               </mat-form-field>
             </div>
         </div>
-        <div class="flw-form-separator" *ngIf="configItem.saparator"></div>
+        <!-- Button-submit -->
+        <div class="flw-btn-wrapper" *ngSwitchCase="'submit'">
+          <button mat-flat-button (click)="onSubmit()" type="reset" color="primary" class="flw-add-btn">{{configItem.label}}</button>
+        </div>
+        <div class="flw-form-separator" *ngIf="configItem.separator"></div>
       </ng-container>
     </ng-container>
   </form>
