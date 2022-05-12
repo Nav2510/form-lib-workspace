@@ -1,6 +1,6 @@
 import { FormModel } from "../../../../../../../../shared/components/form/models/form.model";
 
-export const ADVANCE_CONFIG: FormModel[] = [
+const BASE_ADVANCE_CONFIG: FormModel[] = [
   {
     label: 'Field Appearance',
     name: 'appearance',
@@ -49,60 +49,77 @@ export const ADVANCE_CONFIG: FormModel[] = [
       },
     ],
   },
-  {
-    label: 'Hint',
-    name: 'hint',
-    subType: 'text',
-    type: 'input',
-    placeholder: 'Help user what to fill.',
-    separator: true,
-  },
+];
 
+const HINT: FormModel = {
+  label: 'Hint',
+  name: 'hint',
+  subType: 'text',
+  type: 'input',
+  placeholder: 'Help user what to fill.',
+};
+
+const PREFIX_SUFFIX: FormModel[] = [
   {
     label: 'Prefix Type',
-    name: 'prefixType',
+    name: 'prefix.type',
     type: 'dropdown',
+    placeholder: 'Select prefix for input.',
+    aboveSeparator: true,
     options: [
-      {
-        label: 'String',
-        value: 'string',
-      },
       {
         label: 'Icon',
         value: 'icon',
       },
+      {
+        label: 'String',
+        value: 'string',
+      },
     ],
-    placeholder: 'Display icon or string.',
   },
   {
     label: 'Prefix Value',
-    name: 'prefixValue',
+    name: 'prefix.value',
     type: 'input',
+    placeholder: 'For icons type enter mat icon value.',
     subType: 'text',
-    placeholder: 'Value for prefix',
-    separator: true,
+    belowSeparator: true,
   },
   {
     label: 'Suffix Type',
-    name: 'suffixType',
+    name: 'suffix.type',
     type: 'dropdown',
+    placeholder: 'Select suffix for input.',
     options: [
-      {
-        label: 'String',
-        value: 'string',
-      },
       {
         label: 'Icon',
         value: 'icon',
       },
+      {
+        label: 'String',
+        value: 'string',
+      },
     ],
-    placeholder: 'Display icon or string.',
   },
   {
     label: 'Suffix Value',
-    name: 'suffixValue',
+    name: 'suffix.value',
     type: 'input',
+    placeholder: 'For icons type enter mat icon value.',
     subType: 'text',
-    placeholder: 'Value for suffix.',
   },
 ];
+
+const ADD_FIELD: FormModel = {
+  label: 'Add Field',
+  name: '_submit_',
+  type: 'submit',
+};
+
+export const getInputAdvance = (): FormModel[] => {
+  return [...BASE_ADVANCE_CONFIG, HINT, ...PREFIX_SUFFIX, ADD_FIELD];
+};
+
+export const getTextareaAdvance = (): FormModel[] => {
+  return [...BASE_ADVANCE_CONFIG, HINT, ...PREFIX_SUFFIX, ADD_FIELD];
+};

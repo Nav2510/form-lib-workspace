@@ -8,7 +8,8 @@ export interface FormModel {
   options?: {label: string, value: string}[];
   placeholder?: string;
   required?: boolean;
-  separator?: boolean;
+  aboveSeparator?: boolean;
+  belowSeparator?: boolean;
   subType?: FormSubType;
   type: FormType;
   value?: string;

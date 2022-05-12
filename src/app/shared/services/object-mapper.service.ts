@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { FormConfig, FormField, Input, Textarea } from 'ngx-form-lib';
+import { Checkbox, FormConfig, FormField, Input, Radio, Textarea } from 'ngx-form-lib';
 import { BehaviorSubject } from 'rxjs';
 import { FormService } from '../components/form/services/form.service';
 
@@ -32,6 +32,12 @@ export class ObjectMapperService {
       case 'textarea': {
         return this.createTextarea(values);
       }
+      case 'checkbox': {
+        return this.createCheckbox(values);
+      }
+       case 'radio': {
+        return this.createRadio(values);
+      }
       default: {
         return {} as FormField<string>;
       }
@@ -58,6 +64,19 @@ export class ObjectMapperService {
     return new Textarea({
       field: this.createFormField(values),
     });
+  }
+
+  createCheckbox(values: { [key: string]: any }): Checkbox {
+    return new Checkbox({
+      field: this.createFormField(values),
+    })
+  }
+
+  createRadio(values: { [key: string]: any}): Radio {
+    return new Radio({
+      options: values['options'],
+      field: this.createFormField(values)
+    })
   }
 
   createFormField(values: { [key: string]: any }): FormField<string> {

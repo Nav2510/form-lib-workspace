@@ -2,6 +2,7 @@
   <form [formGroup]="form" class="flw-form">
     <ng-container *ngFor="let configItem of configList">
       <ng-container [ngSwitch]="configItem.type">
+        <div class="flw-form-separator" *ngIf="configItem.aboveSeparator"></div>
         <!-- Input -->
         <div class="flw-form-field" *ngSwitchCase="'input'">
             <label [for]="configItem.name">{{configItem.label}}
@@ -39,7 +40,7 @@
         <div class="flw-btn-wrapper" *ngSwitchCase="'submit'">
           <button mat-flat-button (click)="onSubmit()" type="reset" color="primary" class="flw-add-btn">{{configItem.label}}</button>
         </div>
-        <div class="flw-form-separator" *ngIf="configItem.separator"></div>
+        <div class="flw-form-separator" *ngIf="configItem.belowSeparator"></div>
       </ng-container>
     </ng-container>
   </form>

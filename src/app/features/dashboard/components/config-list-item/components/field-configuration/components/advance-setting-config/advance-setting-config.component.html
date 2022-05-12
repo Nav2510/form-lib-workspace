@@ -1,5 +1,5 @@
 <div class="flw-advance-setting-config">
   <h4>Advance Setting</h4>
   <p>Advance setting allow you to setup validators, field level appearance, hints, preffix, suffix.</p>
-  <app-form [configList]="ADVANCE_CONFIG"></app-form>
+  <app-form [configList]="advanceConfig" (formSubmit)="onSubmit()" (valueChanges)="onValueChanges($event)"></app-form>
 </div>

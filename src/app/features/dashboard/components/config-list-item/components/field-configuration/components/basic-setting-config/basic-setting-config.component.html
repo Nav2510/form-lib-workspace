@@ -3,5 +3,5 @@
   <p>Basic setting allow you to setup label, description, layout, color, placeholder, default value information
   for the component. <br>
   Try updating below fields to check how your form get updated.</p>
-  <app-form [configList]="BASIC_CONFIG" (formSubmit)="onSubmit()" (valueChanges)="onValueChanges($event)"></app-form>
+  <app-form *ngIf="basicConfig" [configList]="basicConfig" (formSubmit)="onSubmit()" (valueChanges)="onValueChanges($event)"></app-form>
 </div>
