@@ -1,6 +1,12 @@
 <div class="flw-configuration-viewer">
   <div class="flw-config-header">
-    JSON Configuration
+    <span>JSON Configuration</span>
+    <div class="flw-action-wrapper">
+      <button mat-icon-button color="primary" aria-label="Down file button"><mat-icon>download</mat-icon></button>
+      <button mat-stroked-button color="primary" aria-label="Copy to Clipboard">
+        Copy to clipboard
+      </button>
+    </div>
   </div>
   <div class="flw-config-wrapper">
     <pre>{{ config$ | async | json }}</pre>
