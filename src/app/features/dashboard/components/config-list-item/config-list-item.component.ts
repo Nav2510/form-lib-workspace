@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { ThemeEnum } from '../../../../shared/enums/theme.enum';
+import { ConfigMenuModel } from '../../../../shared/models/config-menu.model';
 import { ConfigType } from '../../../../shared/models/config-type.model';
+import { ThemeService } from '../../../../shared/services/theme.service';
 
 
 @Component({
@@ -10,6 +13,11 @@ import { ConfigType } from '../../../../shared/models/config-type.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfigListItemComponent {
-  @Input() config: { label: string; src?: string; type?: string } | null = null;
+  @Input() config: ConfigMenuModel | null = null;
   @Input() configType: ConfigType = 'field';
+
+  currentTheme$ = this.themeService.currentThemeClass$;
+  Theme = ThemeEnum;
+
+  constructor(private themeService: ThemeService) {}
 }

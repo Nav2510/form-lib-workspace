@@ -1,12 +1,7 @@
 // Font styles
 $font-iceland: 'Iceland', cursive;
 
-// Color palette
-$green-900: #006C52;
-
-$darkblue-900: #0A0F2E;
-$darkblue-600: #252D4A;
-
+// Light Theme Color palette
 $blue-900: #3452B4;
 $blue-500: #667EFC;
 $blue-200: #AFB3D4;
@@ -20,6 +15,31 @@ $black-300: #E5E5E5;
 $black-200: #ECECEC;
 $black-000: #FFFFFF;
 
+// Dark Theme Color Palette
+$night-blue-900: #00071D;
+$night-blue-800: #051138;
+$night-blue-850: #131b36;
+$night-blue-700: #242C46;
+$night-blue-600: #283358;
+$night-blue-500: #30374B;
+$night-blue-400: #62698C;
+$night-blue-200: #a6b0e0;
+
+$night-light-pink: #F46060;
+
+$night-black-700: #747474;
+$night-black-500: #C4C4C4;
+$night-black-300: #DADADA;
+$night-black-200: #E8E8E8;
+$night-black-000: #ffffff;
+
+// Color transition;
+$color-transition: background-color 0.3s ease-out, 
+color 0.3s ease-out, 
+box-shadow 0.3s ease-out, 
+border-color 0.3s ease-out;
+
+
 // Global styles
 html,
 body {
@@ -29,8 +49,6 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: $black-300;
-  color: $black-800;
 }
 
 // MatExpansionPanel
@@ -61,7 +79,77 @@ body {
 .flw-add-btn {
   font-size: 12px;
   height: 28px;
-  border-radius: 0px !important;
+  border-radius: 2px !important;
   display: flex !important;
   align-items: center;
+}
+
+// Transitions
+.mat-tab-header,
+.mat-tab-label,
+.mat-ink-bar,
+.mat-tab-body-content,
+.mat-icon-button,
+.mat-stoked-button,
+.flw-add-btn,
+.mat-form-field-appearance-outline,
+.mat-form-field-outline,
+.mat-select-placeholder,
+.mat-checkbox-frame {
+  transition: $color-transition;
+}
+
+// Dark theme
+.flw-dark-theme {
+  .flw-panel-header>.mat-expansion-indicator:after {
+    color: $night-black-300;
+  }
+  .flw-form {
+    .mat-form-field-wrapper {
+      border-radius: 6px;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        background-color: $night-blue-400;
+        border-radius: 5px;
+      }
+    .mat-select-placeholder, .mat-input-element::placeholder {
+      color: $night-blue-600;
+    }
+    .mat-checkbox-frame {
+      border-color: $night-black-500;
+    }
+  }
+  .mat-icon-button {
+    color: $night-light-pink;
+  }
+  .mat-stroked-button {
+    border-color: $night-light-pink;
+    color: $night-light-pink;
+  }
+  .flw-add-btn {
+    background-color: $night-light-pink;
+  }
+  .mat-tab-header {
+    border-color: $night-blue-600;
+  }
+  .mat-tab-label {
+    color: $night-black-300;
+  }
+
+  .mat-tab-label-active {
+    opacity: 1;
+  }
+
+  .mat-tab-label.mat-tab-disabled {
+    color: $night-black-700;
+  }
+
+  .mat-ink-bar {
+    background-color: $night-light-pink  !important;
+  }
+
+  .mat-tab-body-content {
+    background-color: $night-blue-850;
+    color: $night-black-200;
+  }
 }

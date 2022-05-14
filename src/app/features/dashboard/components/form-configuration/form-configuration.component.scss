@@ -1,15 +1,30 @@
 @import '../../../../../styles';
 
 .flw-form-config {
-  background-color: $black-000;
   overflow-y: auto;
   height: 100%;
+  transition: $color-transition;
   .flw-config-header {
     padding: 13px;
+    z-index: 1;
+    position: relative;
+    transition: $color-transition;
+  }
+}
+
+.flw-form-config.flw-light-theme {
+  background-color: $black-000;
+  .flw-config-header {
     color: $black-000;
     background-color: $blue-500;
     box-shadow: 0px 5px 4px $black-700;
-    z-index: 1;
-    position: relative;
+  }
+}
+.flw-form-config.flw-dark-theme {
+  background-color: $night-blue-800;
+  .flw-config-header {
+    color: $night-black-000;
+    background-color: $night-light-pink;
+    box-shadow: 0px 5px 4px $night-blue-900;
   }
 }

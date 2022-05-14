@@ -1,8 +1,8 @@
-<mat-expansion-panel *ngIf="config" class="mat-elevation-z0 flw-config-list-item flw-panel">
+<mat-expansion-panel *ngIf="config" class="mat-elevation-z0 flw-config-list-item flw-panel" appTheme>
   <mat-expansion-panel-header collapsedHeight="47px" expandedHeight="47px" class="flw-panel-header">
     <mat-panel-title class="flw-panel-title">
       <span>{{config.label}}</span>
-      <img *ngIf="!!config.src" [src]="config.src" [alt]="config.label">
+      <img *ngIf="!!config.src" [src]="(currentTheme$ | async) === Theme.Light ? config.src : config.nightThemeSrc" [alt]="config.label">
     </mat-panel-title>
   </mat-expansion-panel-header>
   <app-field-configuration [type]="configType" [controlType]="config.type ? config.type : null"></app-field-configuration>
