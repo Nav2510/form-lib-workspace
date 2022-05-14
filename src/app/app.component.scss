@@ -1,0 +1,13 @@
+@import '../styles';
+.flw-app-container{
+  transition: $color-transition;
+}
+
+.flw-app-container.flw-light-theme {
+  background-color: $black-300;
+  color: $black-800;
+}
+.flw-app-container.flw-dark-theme{
+  background-color: $night-blue-900;
+  color: $night-black-200;
+}

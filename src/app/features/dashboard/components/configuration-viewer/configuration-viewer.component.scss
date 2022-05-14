@@ -2,27 +2,56 @@
 
 .flw-configuration-viewer {
   height: 100%;
-  background-color: $black-200;
-
+  transition: $color-transition;
   .flw-config-header {
     padding: 13px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-height: 20px;
-    background-color: $black-000;
-    color: $black-800;
-    box-shadow: 0px 5px 4px $black-400;
     z-index: 1;
     position: relative;
+    transition: $color-transition;
   }
 
   .flw-config-wrapper {
     overflow: auto;
     height: calc(100vh - 110px);
+    pre {
+      transition: $color-transition;
+    }
+  }
+}
 
+.flw-configuration-viewer.flw-light-theme {
+  background-color: $black-200;
+
+  .flw-config-header {
+    background-color: $black-000;
+    color: $black-800;
+    box-shadow: 0px 5px 4px $black-400;
+  }
+
+  .flw-config-wrapper {
     pre {
       color: $black-800;
+    }
+  }
+}
+
+.flw-configuration-viewer.flw-dark-theme {
+  background-color: $night-blue-850;
+  color: $night-blue-400;
+
+  .flw-config-header {
+    background-color: $night-blue-800;
+    color: $night-black-200;
+    box-shadow: 0px 5px 4px $night-blue-900;
+  }
+
+  .flw-config-wrapper {
+    pre {
+      color: $night-blue-200;
     }
   }
 }

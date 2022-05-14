@@ -1,28 +1,30 @@
-<mat-tab-group>
-  <mat-tab [label]="tabs[type][0]">
-    <ng-container [ngSwitch]="type">
-      <ng-container *ngSwitchCase="configType.Appearance">
-        <app-form-setting-config></app-form-setting-config>
+<div class="flw-field-configuration">
+  <mat-tab-group class="flw-tab-group">
+    <mat-tab class="flw-tab" [label]="tabs[type][0]">
+      <ng-container [ngSwitch]="type">
+        <ng-container *ngSwitchCase="configType.Appearance">
+          <app-form-setting-config></app-form-setting-config>
+        </ng-container>
+        <ng-container *ngSwitchCase="configType.Dependency">
+          <app-form-dependency-setting-config></app-form-dependency-setting-config>
+        </ng-container>
+        <ng-container *ngSwitchCase="configType.Field">
+          <app-basic-setting-config [controlType]="controlType? controlType: null"></app-basic-setting-config>
+        </ng-container>
       </ng-container>
-      <ng-container *ngSwitchCase="configType.Dependency">
-        <app-form-dependency-setting-config></app-form-dependency-setting-config>
+    </mat-tab>
+    <mat-tab class="flw-tab" [label]="tabs[type][1]">
+      <ng-container [ngSwitch]="type">
+        <ng-container *ngSwitchCase="configType.Appearance">
+          <app-section-setting-config></app-section-setting-config>
+        </ng-container>
+        <ng-container *ngSwitchCase="configType.Field">
+          <app-advance-setting-config [controlType]="controlType? controlType: null"></app-advance-setting-config>
+        </ng-container>
       </ng-container>
-      <ng-container *ngSwitchCase="configType.Field">
-        <app-basic-setting-config [controlType]="controlType? controlType: null"></app-basic-setting-config>
-      </ng-container>
-    </ng-container>
-  </mat-tab>
-  <mat-tab [label]="tabs[type][1]">
-    <ng-container [ngSwitch]="type">
-      <ng-container *ngSwitchCase="configType.Appearance">
-        <app-section-setting-config></app-section-setting-config>
-      </ng-container>
-      <ng-container *ngSwitchCase="configType.Field">
-          <app-advance-setting-config  [controlType]="controlType? controlType: null"></app-advance-setting-config>
-      </ng-container>
-    </ng-container>
-  </mat-tab>
-  <mat-tab [label]="tabs[type][2]" disabled>
-    <app-dependency-setting-config></app-dependency-setting-config>
-  </mat-tab>
-</mat-tab-group>
+    </mat-tab>
+    <mat-tab class="flw-tab" [label]="tabs[type][2]" disabled>
+      <app-dependency-setting-config></app-dependency-setting-config>
+    </mat-tab>
+  </mat-tab-group>
+</div>

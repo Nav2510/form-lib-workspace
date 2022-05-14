@@ -2,18 +2,36 @@
 
 .flw-config-list-item {
   border-radius: 0px;
-  background-color: $black-200;
-
+  transition: $color-transition;
   .flw-panel-header {
     padding: 0px 20px 0px 13px;
     border-radius: 0px;
-    border-bottom: 1px solid $black-400;
-    background-color: $black-000;
+    transition: $color-transition;
   }
 
   .flw-panel-title {
     display: flex;
     justify-content: space-between;
     padding-right: 20px;
+    transition: $color-transition;
+  }
+}
+
+.flw-config-list-item.flw-light-theme {
+  background-color: $black-200;
+
+  .flw-panel-header {
+    border-bottom: 1px solid $black-400;
+    background-color: $black-000;
+  }
+}
+.flw-config-list-item.flw-dark-theme {
+  background-color: $night-blue-800;
+  .flw-panel-header {
+    border-bottom: 1px solid $night-blue-500;
+    background-color: $night-blue-800;
+    .flw-panel-title {
+      color: $night-black-300;
+    }
   }
 }

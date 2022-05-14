@@ -1,9 +1,12 @@
-<div class="flw-header">
+<div class="flw-header" appTheme>
   <div class="flw-logo-wrapper">
     <img src="../../../../assets/icons/ngx-form-lib-logo.svg" alt="Website logo">
     <span class="flw-site-name">NgxFormLib</span>
   </div>
   <div class="flw-actions-wrapper">
+    <button (click)="toggleTheme()" class="flw-theme-btn" mat-icon-button aria-label="Theme toggler">
+      <img [src]="(currentTheme$ | async) === LIGHT_THEME ? lightSrc: nightSrc" alt="Theme logo">
+    </button>
     <a class="flw-npm-link" [href]="npmLink"><img src="../../../../assets/icons/npm.png" alt="Npm package link"></a>
     <a [href]="githubLink"><img src="../../../../assets/icons/github.svg" alt="Github repo link"></a>
   </div>

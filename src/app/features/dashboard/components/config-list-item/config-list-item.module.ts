@@ -5,10 +5,11 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ConfigListItemComponent } from './config-list-item.component';
 import { FieldConfigurationModule } from './components/field-configuration/field-configuration.module';
+import { ThemeModule } from '../../../../shared/directives/theme/theme.module';
 
 @NgModule({
   declarations: [ConfigListItemComponent],
-  imports: [CommonModule, MatExpansionModule, MatIconModule, FieldConfigurationModule],
+  imports: [CommonModule, MatExpansionModule, MatIconModule, FieldConfigurationModule, ThemeModule],
   exports: [ConfigListItemComponent],
 })
 export class ConfigListItemModule {}

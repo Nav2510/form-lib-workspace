@@ -1,15 +1,13 @@
 @import '../../../../styles.scss';
 
 .flw-header {
-  background-color: $blue-900;
   color: $black-000;
   display: flex;
   justify-content: space-between;
   padding: 8px 14px;
-  box-shadow: 0px 1px 5px $black-800;
   position: relative;
   z-index: 10;
-
+  transition: $color-transition;
   .flw-logo-wrapper {
     display: flex;
     align-items: center;
@@ -25,7 +23,13 @@
       margin-left: 10px;
     }
   }
-
+  .flw-actions-wrapper {
+    display: flex;
+    align-items: center;
+    .flw-theme-btn {
+      margin-right: 20px;
+    }
+  }
   .flw-npm-link {
     img {
       width: 38px;
@@ -33,4 +37,14 @@
       margin-right: 20px;
     }
   }
+}
+
+.flw-light-theme.flw-header {
+  background-color: $blue-900;
+  box-shadow: 0px 1px 5px $black-800;
+}
+
+.flw-dark-theme.flw-header {
+  background-color: $night-blue-600;
+  box-shadow: 0px 1px 5px $night-blue-800;
 }
