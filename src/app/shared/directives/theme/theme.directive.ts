@@ -18,9 +18,13 @@ export class ThemeDirective implements OnDestroy {
   ) {
     this.theme.currentThemeClass$.pipe(takeUntil(this.destroy$)).subscribe((theme) => {
       if (theme === ThemeEnum.Dark) {
+        renderer.addClass(document.body, ThemeEnum.Dark);
+        renderer.removeClass(document.body, ThemeEnum.Light);
         renderer.addClass(elementRef.nativeElement, ThemeEnum.Dark);
         renderer.removeClass(elementRef.nativeElement, ThemeEnum.Light);
       } else {
+        renderer.addClass(document.body, ThemeEnum.Light);
+        renderer.removeClass(document.body, ThemeEnum.Dark);
         renderer.addClass(elementRef.nativeElement, ThemeEnum.Light);
         renderer.removeClass(elementRef.nativeElement, ThemeEnum.Dark);
       }

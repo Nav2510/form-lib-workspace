@@ -34,10 +34,10 @@ $night-black-200: #E8E8E8;
 $night-black-000: #ffffff;
 
 // Color transition;
-$color-transition: background-color 0.3s ease-out, 
-color 0.3s ease-out, 
-box-shadow 0.3s ease-out, 
-border-color 0.3s ease-out;
+$color-transition: background-color 0.3s ease-out,
+  color 0.3s ease-out,
+  box-shadow 0.3s ease-out,
+  border-color 0.3s ease-out;
 
 
 // Global styles
@@ -84,6 +84,32 @@ body {
   align-items: center;
 }
 
+.flw-light-theme {
+
+  // Scrollbar
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px $black-700;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $black-700;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $black-800;
+  }
+}
+
 // Transitions
 .mat-tab-header,
 .mat-tab-label,
@@ -101,37 +127,75 @@ body {
 
 // Dark theme
 .flw-dark-theme {
+
+  // Scrollbar
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px $night-blue-900;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $night-blue-400;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $night-blue-200;
+  }
+
+  .mat-select-panel {
+    background: $night-black-500;
+  }
+
   .flw-panel-header>.mat-expansion-indicator:after {
     color: $night-black-300;
   }
+
   .flw-form {
     .mat-form-field-wrapper {
       border-radius: 6px;
     }
+
     .mat-form-field-appearance-outline .mat-form-field-outline {
-        background-color: $night-blue-400;
-        border-radius: 5px;
-      }
-    .mat-select-placeholder, .mat-input-element::placeholder {
+      background-color: $night-blue-400;
+      border-radius: 5px;
+    }
+
+    .mat-select-placeholder,
+    .mat-input-element::placeholder {
       color: $night-blue-600;
     }
+
     .mat-checkbox-frame {
       border-color: $night-black-500;
     }
   }
+
   .mat-icon-button {
     color: $night-light-pink;
   }
+
   .mat-stroked-button {
     border-color: $night-light-pink;
     color: $night-light-pink;
   }
+
   .flw-add-btn {
     background-color: $night-light-pink;
   }
+
   .mat-tab-header {
     border-color: $night-blue-600;
   }
+
   .mat-tab-label {
     color: $night-black-300;
   }
