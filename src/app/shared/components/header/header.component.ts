@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ThemeEnum } from '../../enums/theme.enum';
 
+import { LIB_VERSION } from '../../constants/version.constant';
+import { ThemeEnum } from '../../enums/theme.enum';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({

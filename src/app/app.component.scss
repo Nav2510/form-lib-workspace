@@ -1,6 +1,13 @@
 @import '../styles';
 .flw-app-container{
   transition: $color-transition;
+  position: relative;
+  .flw-lib-version {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 10px 20px;
+  }
 }
 
 .flw-app-container.flw-light-theme {

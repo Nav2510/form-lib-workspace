@@ -1,16 +1,17 @@
 import { FormModel } from '../../../../../../../../../shared/components/form/models/form.model';
+import { FormProperties } from '../../../../../../../../../shared/enums/form-properties.enum';
 
 const BASE_CONFIG: FormModel[] = [
   {
     label: 'Label',
-    name: 'label',
+    name: FormProperties.Label,
     subType: 'text',
     type: 'input',
     placeholder: 'Enter the question here.',
   },
   {
     label: 'Name',
-    name: 'name',
+    name: FormProperties.Name,
     subType: 'text',
     type: 'input',
     placeholder: 'Will be used as field name.',
@@ -18,14 +19,14 @@ const BASE_CONFIG: FormModel[] = [
   },
   {
     label: 'Value',
-    name: 'value',
+    name: FormProperties.Value,
     subType: 'text',
     type: 'input',
     placeholder: 'Will be set as default value.',
   },
   {
     label: 'Classes',
-    name: 'classes',
+    name: FormProperties.Classes,
     type: 'dropdown',
     required: true,
     placeholder: 'Select classes for layout',
@@ -71,16 +72,26 @@ const BASE_CONFIG: FormModel[] = [
   },
 ];
 
-const REQUIRED: FormModel = {
-  label: 'Required Field',
-  name: 'required',
-  subType: 'text',
-  type: 'checkbox',
-};
+const REQUIRED: FormModel[] = [
+  {
+    aboveSeparator: true,
+    label: 'Required Field',
+    name: FormProperties.Required,
+    subType: 'text',
+    type: 'checkbox',
+  },
+  {
+    label: 'Required Error Message',
+    name: FormProperties.RequiredMsg,
+    subType: 'text',
+    type: 'input',
+    placeholder: 'Error message',
+  },
+];
 
 const PLACEHOLDER: FormModel = {
   label: 'Placeholder',
-  name: 'placeholder',
+  name: FormProperties.Placeholder,
   subType: 'text',
   type: 'input',
   placeholder: 'Placeholder for field',
@@ -88,24 +99,20 @@ const PLACEHOLDER: FormModel = {
 
 const ADD_FIELD: FormModel = {
   label: 'Add Field',
-  name: '_submit_',
+  name: FormProperties.Submit,
   type: 'submit',
 };
 
 const SUB_TYPE: FormModel = {
   label: 'Sub-type',
-  name: 'subType',
+  name: FormProperties.SubType,
   type: 'dropdown',
   placeholder: 'Select subtype for input.',
   required: true,
   options: [
     {
-      label: 'Button',
-      value: 'button',
-    },
-    {
-      label: 'Email',
-      value: 'email',
+      label: 'Text',
+      value: 'text',
     },
     {
       label: 'Number',
@@ -116,6 +123,14 @@ const SUB_TYPE: FormModel = {
       value: 'password',
     },
     {
+      label: 'Email',
+      value: 'email',
+    },
+    {
+      label: 'Button',
+      value: 'button',
+    },
+    {
       label: 'Reset',
       value: 'reset',
     },
@@ -123,16 +138,12 @@ const SUB_TYPE: FormModel = {
       label: 'Submit',
       value: 'submit',
     },
-    {
-      label: 'Text',
-      value: 'text',
-    },
   ],
 };
 
 const LABEL_POSITION: FormModel = {
   label: 'Label Position',
-  name: 'labelPosition',
+  name: FormProperties.LabelPosition,
   type: 'dropdown',
   placeholder: 'Select where label should be placed',
   required: true,
@@ -151,31 +162,33 @@ const LABEL_POSITION: FormModel = {
 
 const INDETERMINATE: FormModel = {
   label: 'Show Indeterminate',
-  name: 'indeterminate',
+  name: FormProperties.Indeterminate,
   type: 'checkbox',
 };
 
 const INLINE: FormModel = {
   label: 'Show Inline',
-  name: 'showInline',
+  name: FormProperties.ShowInline,
   type: 'checkbox',
 };
 
 const OPTIONS: FormModel = {
   label: 'Options',
-  name: 'options',
+  name: FormProperties.Options,
   type: 'input',
+  placeholder: "Label:Value",
   belowSeparator: true,
   aboveSeparator: true,
+  isAddable: true
 };
 
 
 export const getInputBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, SUB_TYPE, PLACEHOLDER, REQUIRED, ADD_FIELD];
+  return [...BASE_CONFIG, SUB_TYPE, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
 };
 
 export const getTextareaBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, PLACEHOLDER, REQUIRED, ADD_FIELD];
+  return [...BASE_CONFIG, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
 };
 
 export const getCheckboxBasic = (): FormModel[] => {

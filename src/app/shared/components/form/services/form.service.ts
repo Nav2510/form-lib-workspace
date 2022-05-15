@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { FormModel } from '../models/form.model';
 
@@ -10,13 +10,17 @@ export class FormService {
   reset$ = new EventEmitter<void>();
 
   initForm(config: FormModel[]): FormGroup {
-    const obj: { [key: string]: FormControl } = {};
+    const obj: { [key: string]: FormControl | FormArray } = {};
 
     config.forEach((configItem) => {
-      obj[configItem.name] = new FormControl(
-        configItem.value,
-        configItem.required ? Validators.required : null
-      );
+      if (configItem.isAddable) {
+        obj[configItem.name] = new FormArray([])
+      } else {
+        obj[configItem.name] = new FormControl(
+          configItem.value,
+          configItem.required ? Validators.required : null
+        );
+      }
     });
     return new FormGroup(obj);
   }

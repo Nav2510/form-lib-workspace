@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormResponseModel } from '../../../../../../../../shared/components/form/models/form-response.model';
 import { FormModel } from '../../../../../../../../shared/components/form/models/form.model';
 import { ObjectMapperService } from '../../../../../../../../shared/services/object-mapper.service';
-
 import { getCheckboxBasic, getInputBasic, getRadioBasic, getTextareaBasic } from './contants/basic.constant';
 
 @Component({

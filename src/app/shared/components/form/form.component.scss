@@ -6,17 +6,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      min-height: 39px;
+
       .form-field-wrapper {
         font-size: 12px;
       }
     }
+
     .flw-form-separator {
       border-bottom: 1px solid $black-700;
       margin: 10px 0px;
     }
+
     .flw-btn-wrapper {
       display: flex;
-      justify-content: flex-end;
+      justify-content: stretch;
+    }
+
+    .flw-checkbox {
+      margin-right: 180px;
     }
   }
 }

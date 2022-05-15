@@ -34,10 +34,10 @@ $night-black-200: #E8E8E8;
 $night-black-000: #ffffff;
 
 // Color transition;
-$color-transition: background-color 0.3s ease-out,
-  color 0.3s ease-out,
-  box-shadow 0.3s ease-out,
-  border-color 0.3s ease-out;
+$color-transition: background-color 0.5s ease-out,
+  color 0.5s ease-out,
+  box-shadow 0.5s ease-out,
+  border-color 0.5s ease-out;
 
 
 // Global styles
@@ -77,11 +77,14 @@ body {
 }
 
 .flw-add-btn {
-  font-size: 12px;
-  height: 28px;
-  border-radius: 2px !important;
-  display: flex !important;
-  align-items: center;
+  font-size: 14px;
+  box-sizing: content-box;
+  margin-top: 10px;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 5px;
+  letter-spacing: 2.2px;
+  justify-content: center;
 }
 
 .flw-light-theme {
@@ -171,7 +174,12 @@ body {
 
     .mat-select-placeholder,
     .mat-input-element::placeholder {
-      color: $night-blue-600;
+      color: $night-blue-200;
+    }
+
+    .mat-select-value,
+    .mat-select-arrow {
+      color: $night-black-000;
     }
 
     .mat-checkbox-frame {

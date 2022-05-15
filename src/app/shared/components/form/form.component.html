@@ -9,16 +9,38 @@
               <span *ngIf="configItem.required">*</span>
             </label>
             <div class="form-field-wrapper">
-              <mat-form-field appearance="outline">
-                <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name" placeholder="{{configItem.placeholder}}">
-              </mat-form-field>
+              <ng-container *ngIf="configItem.isAddable">
+                <div class="form-list-wrapper" [formArrayName]="configItem.name">
+                  <div class="form-list" *ngFor="let option of getOptions(configItem.name).controls; let optionIndex = index">
+                    <button (click)="onRemoveSubField(configItem.name, optionIndex)" mat-icon-button color="primary">
+                      <mat-icon>remove</mat-icon>
+                    </button>
+                    {{optionIndex + 1}}: 
+                    <mat-form-field appearance="outline">
+                      <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
+                        [formControlName]="optionIndex" placeholder="{{configItem.placeholder}}">
+                    </mat-form-field>
+                  </div>
+                  <button (click)="onAddSubField(configItem.name)" mat-icon-button color="primary">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </ng-container>
+                <ng-container *ngIf="!configItem.isAddable">
+                  <mat-form-field appearance="outline">
+                    <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
+                      [formControlName]="configItem.name" placeholder="{{configItem.placeholder}}">
+                  </mat-form-field>
+                </ng-container>
             </div>
-        </div>
-        <!-- Checkbox -->
+            </div>
+            <!-- Checkbox -->
         <div  class="flw-form-field" *ngSwitchCase="'checkbox'">
-          <mat-checkbox labelPosition="before" [formControlName]="configItem.name">
+          <span class="flw-label">
             {{configItem.label}}
             <span *ngIf="configItem.required">*</span>
+          </span>
+          <mat-checkbox class="flw-checkbox" labelPosition="before" [formControlName]="configItem.name">
           </mat-checkbox>
         </div>
         <!-- Dropdown -->

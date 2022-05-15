@@ -1,9 +1,10 @@
 import { FormModel } from "../../../../../../../../shared/components/form/models/form.model";
+import { FormProperties } from "../../../../../../../../shared/enums/form-properties.enum";
 
 const BASE_ADVANCE_CONFIG: FormModel[] = [
   {
     label: 'Field Appearance',
-    name: 'appearance',
+    name: FormProperties.Appearance,
     type: 'dropdown',
     placeholder: 'Will override form level appearance',
     options: [
@@ -27,7 +28,7 @@ const BASE_ADVANCE_CONFIG: FormModel[] = [
   },
   {
     label: 'Field Color',
-    name: 'color',
+    name: FormProperties.Color,
     type: 'dropdown',
     placeholder: 'Will override form level color',
     options: [
@@ -53,7 +54,7 @@ const BASE_ADVANCE_CONFIG: FormModel[] = [
 
 const HINT: FormModel = {
   label: 'Hint',
-  name: 'hint',
+  name: FormProperties.Hint,
   subType: 'text',
   type: 'input',
   placeholder: 'Help user what to fill.',
@@ -62,7 +63,7 @@ const HINT: FormModel = {
 const PREFIX_SUFFIX: FormModel[] = [
   {
     label: 'Prefix Type',
-    name: 'prefix.type',
+    name: FormProperties.PrefixType,
     type: 'dropdown',
     placeholder: 'Select prefix for input.',
     aboveSeparator: true,
@@ -79,7 +80,7 @@ const PREFIX_SUFFIX: FormModel[] = [
   },
   {
     label: 'Prefix Value',
-    name: 'prefix.value',
+    name: FormProperties.PrefixValue,
     type: 'input',
     placeholder: 'For icons type enter mat icon value.',
     subType: 'text',
@@ -87,7 +88,7 @@ const PREFIX_SUFFIX: FormModel[] = [
   },
   {
     label: 'Suffix Type',
-    name: 'suffix.type',
+    name: FormProperties.SuffixType,
     type: 'dropdown',
     placeholder: 'Select suffix for input.',
     options: [
@@ -103,7 +104,7 @@ const PREFIX_SUFFIX: FormModel[] = [
   },
   {
     label: 'Suffix Value',
-    name: 'suffix.value',
+    name: FormProperties.SuffixValue,
     type: 'input',
     placeholder: 'For icons type enter mat icon value.',
     subType: 'text',
@@ -112,7 +113,7 @@ const PREFIX_SUFFIX: FormModel[] = [
 
 const ADD_FIELD: FormModel = {
   label: 'Add Field',
-  name: '_submit_',
+  name: FormProperties.Submit,
   type: 'submit',
 };
 

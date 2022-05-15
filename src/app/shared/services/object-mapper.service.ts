@@ -1,7 +1,9 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Checkbox, FormConfig, FormField, Input, Radio, Textarea } from 'ngx-form-lib';
+import { Injectable } from '@angular/core';
+import { Checkbox, Dropdown, FormConfig, FormField, Input, PrefixSuffix, Radio, Textarea, Validation, ValidationType, ValidationTypeEnum } from 'ngx-form-lib';
 import { BehaviorSubject } from 'rxjs';
+import { OptionModel } from '../components/form/models/option.model';
 import { FormService } from '../components/form/services/form.service';
+import { FormProperties } from '../enums/form-properties.enum';
 
 import { MASTER_CONFIG } from '../mocks/form.mock';
 
@@ -20,7 +22,7 @@ export class ObjectMapperService {
     this.masterConfig$.next(JSON.parse(JSON.stringify(mapped)));
   }
 
-  // TODO: Created enum or type for controlType
+  // TODO: Create enum or type for controlType
   createFieldObject(
     values: { [key: string]: string },
     controlType: string
@@ -35,8 +37,11 @@ export class ObjectMapperService {
       case 'checkbox': {
         return this.createCheckbox(values);
       }
-       case 'radio': {
+      case 'radio': {
         return this.createRadio(values);
+      }
+      case 'dropdown': {
+        return this.createDropdown(values);
       }
       default: {
         return {} as FormField<string>;
@@ -56,27 +61,95 @@ export class ObjectMapperService {
   createInput(values: { [key: string]: any }): Input {
     return new Input({
       field: this.createFormField(values),
-      subType: values['subType'],
+      subType: values[FormProperties.SubType],
+      prefix: this.createPrefix(values),
+      suffix: this.createSuffix(values),
     });
   }
 
   createTextarea(values: { [key: string]: any }): Textarea {
     return new Textarea({
       field: this.createFormField(values),
+      prefix: this.createPrefix(values),
+      suffix: this.createSuffix(values),
     });
   }
 
   createCheckbox(values: { [key: string]: any }): Checkbox {
     return new Checkbox({
       field: this.createFormField(values),
-    })
+      indeterminate: values[FormProperties.Indeterminate],
+      labelPosition: values[FormProperties.LabelPosition],
+      showInline: values[FormProperties.ShowInline],
+    });
   }
 
-  createRadio(values: { [key: string]: any}): Radio {
+  createRadio(values: { [key: string]: any }): Radio {
     return new Radio({
-      options: values['options'],
-      field: this.createFormField(values)
-    })
+      options: this.createOptionsList(values[FormProperties.Options]),
+      showInline: values[FormProperties.ShowInline],
+      field: this.createFormField(values),
+    });
+  }
+
+  createDropdown(values: { [key: string]: any }): Dropdown {
+    return new Dropdown({
+      field: this.createFormField(values),
+      prefix: this.createPrefix(values),
+      suffix: this.createSuffix(values),
+      options: this.createOptionsList(values[FormProperties.Options]),
+    });
+  }
+
+  createOptionsList(options: string[]): OptionModel[] {
+    return options.map((optionItem) => {
+      if (!optionItem) {
+        return {} as OptionModel;
+      }
+      const parsedValue = optionItem.split(':');
+      const obj: OptionModel = {
+        label: parsedValue[0],
+        value: parsedValue[1],
+      };
+      return obj;
+    });
+  }
+
+  createPrefix(values: { [key: string]: any }): PrefixSuffix {
+    return {
+      type: values[FormProperties.PrefixType],
+      value: values[FormProperties.PrefixValue],
+    };
+  }
+
+  createSuffix(values: { [key: string]: any }): PrefixSuffix {
+    return {
+      type: values[FormProperties.SuffixType],
+      value: values[FormProperties.SuffixValue],
+    };
+  }
+
+  createValidators(
+    ...validationTypeList: {
+      type: string;
+      value?: string | boolean;
+      msg?: string;
+    }[]
+  ): Validation[] {
+    const validators: Validation[] = [];
+
+    validationTypeList.forEach((validationObj) => {
+      if (validationObj.value) {
+        validators.push({
+          type: validationObj.type as ValidationType,
+          value: validationObj.value ? validationObj.value : true,
+          message: validationObj.msg
+        });
+      }
+    });
+
+    console.log(validationTypeList, validators);
+    return validators;
   }
 
   createFormField(values: { [key: string]: any }): FormField<string> {
@@ -89,6 +162,11 @@ export class ObjectMapperService {
       name: values['name'],
       placeholder: values['placeholder'],
       value: values['value'],
+      validators: this.createValidators({
+        type: FormProperties.Required,
+        value: values[FormProperties.Required],
+        msg: values[FormProperties.RequiredMsg]
+      }),
     });
   }
 }
