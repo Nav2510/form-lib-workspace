@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Checkbox, Dropdown, FormConfig, FormField, Input, PrefixSuffix, Radio, Textarea, Validation, ValidationType, ValidationTypeEnum } from 'ngx-form-lib';
+import { Button, Checkbox, Dropdown, FormConfig, FormField, Input, PrefixSuffix, Radio, Textarea, Validation, ValidationType, ValidationTypeEnum } from 'ngx-form-lib';
 import { BehaviorSubject } from 'rxjs';
 import { OptionModel } from '../components/form/models/option.model';
 import { FormService } from '../components/form/services/form.service';
@@ -43,6 +43,9 @@ export class ObjectMapperService {
       case 'dropdown': {
         return this.createDropdown(values);
       }
+      case 'button': {
+        return this.createButton(values);
+      }
       default: {
         return {} as FormField<string>;
       }
@@ -67,11 +70,20 @@ export class ObjectMapperService {
     });
   }
 
+  createButton(values: { [key: string]: any }): Button {
+    return new Button({
+      attribute: values[FormProperties.Attribute],
+      subType: values[FormProperties.SubType],
+      field: this.createFormField(values)
+    });
+  }
+
   createTextarea(values: { [key: string]: any }): Textarea {
     return new Textarea({
       field: this.createFormField(values),
       prefix: this.createPrefix(values),
       suffix: this.createSuffix(values),
+      rows: values[FormProperties.Rows]
     });
   }
 
@@ -148,7 +160,6 @@ export class ObjectMapperService {
       }
     });
 
-    console.log(validationTypeList, validators);
     return validators;
   }
 

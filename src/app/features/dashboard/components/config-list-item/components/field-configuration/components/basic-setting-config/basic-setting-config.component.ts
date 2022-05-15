@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormResponseModel } from '../../../../../../../../shared/components/form/models/form-response.model';
 import { FormModel } from '../../../../../../../../shared/components/form/models/form.model';
 import { ObjectMapperService } from '../../../../../../../../shared/services/object-mapper.service';
-import { getCheckboxBasic, getInputBasic, getRadioBasic, getTextareaBasic } from './contants/basic.constant';
+import { getButtonBasic, getCheckboxBasic, getInputBasic, getRadioBasic, getTextareaBasic } from './contants/basic.constant';
 
 @Component({
   selector: 'app-basic-setting-config',
@@ -34,6 +34,10 @@ export class BasicSettingConfigComponent implements OnInit{
       }
       case 'radio': {
         this.basicConfig = getRadioBasic();
+        break;
+      }
+      case 'button': {
+        this.basicConfig = getButtonBasic();
         break;
       }
     }

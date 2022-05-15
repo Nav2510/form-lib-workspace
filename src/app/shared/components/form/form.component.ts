@@ -25,7 +25,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.form?.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe((value) => {
-        console.log(value)
         this.form
           ? this.valueChanges.next({ value: value, form: this.form })
           : '';

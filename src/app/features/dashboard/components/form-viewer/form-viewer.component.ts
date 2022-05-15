@@ -9,6 +9,16 @@ import { ObjectMapperService } from '../../../../shared/services/object-mapper.s
 })
 export class FormViewerComponent {
   config$ = this.mapperService.masterConfig$;
+  formValue = {};
 
   constructor(private mapperService: ObjectMapperService) {}
+
+  // TODO: Fix in library
+  onFormSubmit(): void {
+    console.log(this.formValue)
+  }
+
+  onValueChanges(value: any): void {
+    this.formValue = value;
+  }
 }

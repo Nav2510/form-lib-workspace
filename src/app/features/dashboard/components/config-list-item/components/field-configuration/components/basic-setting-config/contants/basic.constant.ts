@@ -1,3 +1,4 @@
+import { ButtonAttributeEnum } from 'ngx-form-lib';
 import { FormModel } from '../../../../../../../../../shared/components/form/models/form.model';
 import { FormProperties } from '../../../../../../../../../shared/enums/form-properties.enum';
 
@@ -24,53 +25,54 @@ const BASE_CONFIG: FormModel[] = [
     type: 'input',
     placeholder: 'Will be set as default value.',
   },
-  {
-    label: 'Classes',
-    name: FormProperties.Classes,
-    type: 'dropdown',
-    required: true,
-    placeholder: 'Select classes for layout',
-    multi: true,
-    options: [
-      {
-        label: 'Col-12',
-        value: 'ngf-col-12',
-      },
-      {
-        label: 'Col-10',
-        value: 'ngf-col-10',
-      },
-      {
-        label: 'Col-8',
-        value: 'ngf-col-8',
-      },
-      {
-        label: 'Col-6',
-        value: 'ngf-col-6',
-      },
-      {
-        label: 'Col-4',
-        value: 'ngf-col-4',
-      },
-      {
-        label: 'Col-3',
-        value: 'ngf-col-3',
-      },
-      {
-        label: 'Col-2',
-        value: 'ngf-col-2',
-      },
-      {
-        label: 'Col-1',
-        value: 'ngf-col-1',
-      },
-      {
-        label: 'Fit-content',
-        value: 'ngf-fit-content',
-      },
-    ],
-  },
 ];
+
+const CLASSES: FormModel = {
+  label: 'Classes',
+  name: FormProperties.Classes,
+  type: 'dropdown',
+  required: true,
+  placeholder: 'Select classes for layout',
+  multi: true,
+  options: [
+    {
+      label: 'Col-12',
+      value: 'ngf-col-12',
+    },
+    {
+      label: 'Col-10',
+      value: 'ngf-col-10',
+    },
+    {
+      label: 'Col-8',
+      value: 'ngf-col-8',
+    },
+    {
+      label: 'Col-6',
+      value: 'ngf-col-6',
+    },
+    {
+      label: 'Col-4',
+      value: 'ngf-col-4',
+    },
+    {
+      label: 'Col-3',
+      value: 'ngf-col-3',
+    },
+    {
+      label: 'Col-2',
+      value: 'ngf-col-2',
+    },
+    {
+      label: 'Col-1',
+      value: 'ngf-col-1',
+    },
+    {
+      label: 'Fit-content',
+      value: 'ngf-fit-content',
+    },
+  ],
+};
 
 const REQUIRED: FormModel[] = [
   {
@@ -147,7 +149,7 @@ const LABEL_POSITION: FormModel = {
   type: 'dropdown',
   placeholder: 'Select where label should be placed',
   required: true,
-  aboveSeparator:true,
+  aboveSeparator: true,
   options: [
     {
       label: 'Before',
@@ -172,29 +174,108 @@ const INLINE: FormModel = {
   type: 'checkbox',
 };
 
+const ROWS: FormModel = {
+  label: 'Number of Rows',
+  name: FormProperties.Rows,
+  type: 'input',
+  subType: 'text',
+  placeholder: 'Number of rows to display on content',
+};
+
 const OPTIONS: FormModel = {
   label: 'Options',
   name: FormProperties.Options,
   type: 'input',
-  placeholder: "Label:Value",
+  placeholder: 'Label:Value',
   belowSeparator: true,
   aboveSeparator: true,
-  isAddable: true
+  isAddable: true,
 };
 
+const BUTTONS: FormModel[] = [
+  {
+    label: 'Label',
+    name: FormProperties.Label,
+    subType: 'text',
+    type: 'input',
+    placeholder: 'Enter the label or mat icon name',
+  },
+  {
+    label: 'Sub-type',
+    name: FormProperties.SubType,
+    type: 'dropdown',
+    placeholder: 'Select subtype for button',
+    required: true,
+    options: [
+      // {
+      //   label: 'Button',
+      //   value: 'button',
+      // },
+      // {
+      //   label: 'Reset',
+      //   value: 'reset',
+      // },
+      {
+        label: 'Submit',
+        value: 'submit',
+      },
+    ],
+  },
+  {
+    label: 'Attribute',
+    name: FormProperties.Attribute,
+    type: 'dropdown',
+    placeholder: 'Select attribute type',
+    required: true,
+    options: [
+      {
+        label: 'Mat Button',
+        value: ButtonAttributeEnum.MatButton,
+      },
+      {
+        label: 'Mat Raised Button',
+        value: ButtonAttributeEnum.MatRaisedButton,
+      },
+      {
+        label: 'Mat Flat Button',
+        value: ButtonAttributeEnum.MatFlatButton,
+      },
+      {
+        label: 'Mat Stroked Button',
+        value: ButtonAttributeEnum.MatStrokedButton,
+      },
+      {
+        label: 'Mat Icon Button',
+        value: ButtonAttributeEnum.MatIconButton,
+      },
+      {
+        label: 'Mat Fab',
+        value: ButtonAttributeEnum.MatFab,
+      },
+      {
+        label: 'Mat Mini Fab',
+        value: ButtonAttributeEnum.MatMiniFab,
+      },
+    ],
+  },
+];
 
 export const getInputBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, SUB_TYPE, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
+  return [...BASE_CONFIG, CLASSES, SUB_TYPE, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
 };
 
 export const getTextareaBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
+  return [...BASE_CONFIG, CLASSES, PLACEHOLDER, ROWS, ...REQUIRED, ADD_FIELD];
 };
 
 export const getCheckboxBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, LABEL_POSITION, INDETERMINATE, INLINE, ADD_FIELD];
-}
+  return [...BASE_CONFIG, CLASSES, LABEL_POSITION, INDETERMINATE, INLINE, ADD_FIELD];
+};
 
 export const getRadioBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, OPTIONS, INLINE, ADD_FIELD];
+  return [...BASE_CONFIG, CLASSES, OPTIONS, INLINE, ADD_FIELD];
+};
+
+export const getButtonBasic = (): FormModel[] => {
+  return [...BUTTONS, CLASSES, ADD_FIELD];
 };

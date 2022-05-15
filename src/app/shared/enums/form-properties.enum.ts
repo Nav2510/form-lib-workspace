@@ -1,5 +1,6 @@
 export enum FormProperties {
   Appearance = 'appearance',
+  Attribute = 'attribute',
   Classes = 'classes',
   Color = 'color',
   Hint = 'hint',
@@ -12,6 +13,7 @@ export enum FormProperties {
   PrefixValue = 'prefix.value',
   Required = 'required',
   RequiredMsg = 'requiredMsg',
+  Rows = 'rows',
   Options = 'options',
   ShowInline = 'showInline',
   Submit = '_submit_',

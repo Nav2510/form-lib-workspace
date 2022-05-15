@@ -51,4 +51,11 @@ export const FIELD_CONFIG_MENU: ConfigMenuModel[] = [
     type: 'dropdown',
     configType: ConfigTypeEnum.Field,
   },
+  {
+    label: 'Button',
+    src: '../../../../assets/icons/buttons.svg',
+    nightThemeSrc: '../../../../assets/icons/buttons-dark.svg',
+    type: 'button',
+    configType: ConfigTypeEnum.Field,
+  },
 ];
