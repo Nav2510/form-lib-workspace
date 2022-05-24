@@ -154,9 +154,13 @@ body {
     background: $night-blue-200;
   }
 
-  .mat-select-panel {
+  .flw-option {
     background: $night-black-500;
   }
+  .flw-option.mat-option:hover:not(.mat-option-disabled),
+    .mat-option:focus:not(.mat-option-disabled) {
+      background: $night-black-300;
+    }
 
   .flw-panel-header>.mat-expansion-indicator:after {
     color: $night-black-300;

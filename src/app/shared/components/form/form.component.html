@@ -50,8 +50,8 @@
             </label>
             <div class="form-field-wrapper">
               <mat-form-field appearance="outline">
-                <mat-select  [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
-                  <mat-option *ngFor="let option of configItem.options" [value]="option.value">
+                <mat-select class="flw-select" [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
+                  <mat-option class="flw-option" *ngFor="let option of configItem.options" [value]="option.value">
                     {{option.label}}
                   </mat-option>
                 </mat-select>
