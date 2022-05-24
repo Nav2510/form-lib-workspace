@@ -99,7 +99,7 @@ const PLACEHOLDER: FormModel = {
   placeholder: 'Placeholder for field',
 };
 
-const ADD_FIELD: FormModel = {
+const ADD_FIELD_BUTTON: FormModel = {
   label: 'Add Field',
   name: FormProperties.Submit,
   type: 'submit',
@@ -192,6 +192,13 @@ const OPTIONS: FormModel = {
   isAddable: true,
 };
 
+const MULTI: FormModel = {
+  label: 'Multiple select',
+  name: FormProperties.Multiple,
+  type: 'checkbox',
+  aboveSeparator: true
+};
+
 const BUTTONS: FormModel[] = [
   {
     label: 'Label',
@@ -261,21 +268,54 @@ const BUTTONS: FormModel[] = [
 ];
 
 export const getInputBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, CLASSES, SUB_TYPE, PLACEHOLDER, ...REQUIRED, ADD_FIELD];
+  return [
+    ...BASE_CONFIG,
+    CLASSES,
+    SUB_TYPE,
+    PLACEHOLDER,
+    ...REQUIRED,
+    ADD_FIELD_BUTTON,
+  ];
 };
 
 export const getTextareaBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, CLASSES, PLACEHOLDER, ROWS, ...REQUIRED, ADD_FIELD];
+  return [
+    ...BASE_CONFIG,
+    CLASSES,
+    PLACEHOLDER,
+    ROWS,
+    ...REQUIRED,
+    ADD_FIELD_BUTTON,
+  ];
 };
 
 export const getCheckboxBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, CLASSES, LABEL_POSITION, INDETERMINATE, INLINE, ADD_FIELD];
+  return [
+    ...BASE_CONFIG,
+    CLASSES,
+    LABEL_POSITION,
+    INDETERMINATE,
+    INLINE,
+    ADD_FIELD_BUTTON,
+  ];
 };
 
 export const getRadioBasic = (): FormModel[] => {
-  return [...BASE_CONFIG, CLASSES, OPTIONS, INLINE, ADD_FIELD];
+  return [...BASE_CONFIG, CLASSES, OPTIONS, INLINE, ADD_FIELD_BUTTON];
 };
 
 export const getButtonBasic = (): FormModel[] => {
-  return [...BUTTONS, CLASSES, ADD_FIELD];
+  return [...BUTTONS, CLASSES, ADD_FIELD_BUTTON];
+};
+
+export const getDropdownBasic = (): FormModel[] => {
+  return [
+    ...BASE_CONFIG,
+    CLASSES,
+    PLACEHOLDER,
+    MULTI,
+    ...REQUIRED,
+    OPTIONS,
+    ADD_FIELD_BUTTON,
+  ];
 };

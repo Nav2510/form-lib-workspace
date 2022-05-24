@@ -3,7 +3,7 @@ import { FormResponseModel } from '../../../../../../../../shared/components/for
 import { FormModel } from '../../../../../../../../shared/components/form/models/form.model';
 import { ObjectMapperService } from '../../../../../../../../shared/services/object-mapper.service';
 
-import { getInputAdvance, getTextareaAdvance } from './advance.constant';
+import { getButtonAdvance, getDropdownAdvance, getInputAdvance, getTextareaAdvance } from './advance.constant';
 
 @Component({
   selector: 'app-advance-setting-config',
@@ -26,6 +26,14 @@ export class AdvanceSettingConfigComponent implements OnInit {
       }
       case 'textarea': {
         this.advanceConfig = getTextareaAdvance();
+        break;
+      }
+      case 'dropdown': {
+        this.advanceConfig = getDropdownAdvance();
+        break;
+      }
+      case 'button': {
+        this.advanceConfig = getButtonAdvance();
         break;
       }
     }

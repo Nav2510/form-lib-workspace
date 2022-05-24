@@ -7,7 +7,7 @@ For more info go through Doc on "https://www.npmjs.com/package/ngx-form-lib"`;
 
 
 export const MASTER_CONFIG: FormConfig = {
-  header: 'Awesome Form',
+  header: 'Demo Awesome Form',
   parentConfig: new ParentConfig({
     appearance: 'outline',
     color: 'primary',

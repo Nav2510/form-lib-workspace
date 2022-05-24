@@ -7,6 +7,7 @@ export enum FormProperties {
   Indeterminate = 'indeterminate',
   Label = 'label',
   LabelPosition = 'labelPosition',
+  Multiple = 'multiple',
   Name = 'name',
   Placeholder = 'placeholder',
   PrefixType = 'prefix.type',
