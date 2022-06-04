@@ -1,6 +1,6 @@
 @import '../styles';
 .flw-app-container{
-  transition: $color-transition;
+  transition: $theme-transition;
   position: relative;
   .flw-lib-version {
     position: fixed;

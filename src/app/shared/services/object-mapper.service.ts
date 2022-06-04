@@ -107,6 +107,7 @@ export class ObjectMapperService {
   createDropdown(values: { [key: string]: any }): Dropdown {
     return new Dropdown({
       field: this.createFormField(values),
+      multiple: values[FormProperties.Multiple],
       prefix: this.createPrefix(values),
       suffix: this.createSuffix(values),
       options: this.createOptionsList(values[FormProperties.Options]),

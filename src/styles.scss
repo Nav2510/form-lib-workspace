@@ -33,11 +33,14 @@ $night-black-300: #DADADA;
 $night-black-200: #E8E8E8;
 $night-black-000: #ffffff;
 
-// Color transition;
-$color-transition: background-color 0.5s ease-out,
+// Theme color transition;
+$theme-transition: background-color 0.5s ease-out,
   color 0.5s ease-out,
   box-shadow 0.5s ease-out,
   border-color 0.5s ease-out;
+
+// Hover color transition
+$hover-transition: background-color 0.2s ease-in-out;
 
 
 // Global styles
@@ -125,7 +128,7 @@ body {
 .mat-form-field-outline,
 .mat-select-placeholder,
 .mat-checkbox-frame {
-  transition: $color-transition;
+  transition: $theme-transition;
 }
 
 // Dark theme

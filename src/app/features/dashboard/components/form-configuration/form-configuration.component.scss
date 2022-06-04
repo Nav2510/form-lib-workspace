@@ -3,12 +3,12 @@
 .flw-form-config {
   overflow-y: auto;
   height: 100%;
-  transition: $color-transition;
+  transition: $theme-transition;
   .flw-config-header {
     padding: 13px;
     z-index: 1;
     position: relative;
-    transition: $color-transition;
+    transition: $theme-transition;
   }
 }
 
