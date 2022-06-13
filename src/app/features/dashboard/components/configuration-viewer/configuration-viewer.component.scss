@@ -3,6 +3,7 @@
 .flw-configuration-viewer {
   height: 100%;
   transition: $theme-transition;
+
   .flw-config-header {
     padding: 13px;
     display: flex;
@@ -12,12 +13,23 @@
     z-index: 1;
     position: relative;
     transition: $theme-transition;
+
+    .flw-copy-textarea {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      height: 0px;
+      opacity: 0;
+      width: 0px;
+    }
   }
 
   .flw-config-wrapper {
     overflow: auto;
     height: calc(100vh - 110px);
+
     pre {
+      padding-left: 10px;
       transition: $theme-transition;
     }
   }
@@ -30,6 +42,12 @@
     background-color: $black-000;
     color: $black-800;
     box-shadow: 0px 5px 4px $black-400;
+
+    .flw-action-btn {
+      &:hover {
+        background-color: $black-500;
+      }
+    }
   }
 
   .flw-config-wrapper {
@@ -47,6 +65,12 @@
     background-color: $night-blue-800;
     color: $night-black-200;
     box-shadow: 0px 5px 4px $night-blue-900;
+
+    .flw-action-btn {
+      &:hover {
+        background-color: $night-blue-700;
+      }
+    }
   }
 
   .flw-config-wrapper {

@@ -1,14 +1,18 @@
-<div class="flw-configuration-viewer" appTheme>
+<div class="flw-configuration-viewer" *ngIf="{config: config$ | async} as data" appTheme>
   <div class="flw-config-header">
     <span>JSON Configuration</span>
     <div class="flw-action-wrapper">
-      <button mat-icon-button color="primary" aria-label="Down file button"><mat-icon>download</mat-icon></button>
-      <button mat-stroked-button color="primary" aria-label="Copy to Clipboard">
-        Copy to clipboard
+      <button class="flw-action-btn" mat-icon-button color="primary" aria-label="Down file button" (click)="downloadFile(data.config)">
+        <mat-icon>download</mat-icon>
+      </button>
+      <button class="flw-action-btn" mat-icon-button color="primary" aria-label="Copy to Clipboard" (click)="copyToClipboard(textAreaInput)">
+        <mat-icon>content_copy</mat-icon>
       </button>
     </div>
+    <!-- This textarea is for copy content only. -->
+    <textarea class="flw-copy-textarea" #textAreaInput>{{ stringifyData(data.config) }}</textarea>
   </div>
   <div class="flw-config-wrapper">
-    <pre>{{ config$ | async | json }}</pre>
+    <pre>{{ data.config | json }}</pre>
   </div>
 </div>
