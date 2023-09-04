@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Button, Checkbox, Dropdown, FormConfig, FormField, Input, PrefixSuffix, Radio, Textarea, Validation, ValidationType, ValidationTypeEnum } from 'ngx-form-lib';
+import { Button, Checkbox, Dropdown, Config, Field, Input, PrefixSuffix, Radio, Textarea, Validation, ValidationType, ValidationTypeEnum } from 'ngx-form-lib';
 import { BehaviorSubject } from 'rxjs';
 import { OptionModel } from '../components/form/models/option.model';
 import { FormService } from '../components/form/services/form.service';
@@ -11,7 +11,7 @@ import { MASTER_CONFIG } from '../mocks/form.mock';
   providedIn: 'root',
 })
 export class ObjectMapperService {
-  masterConfig$ = new BehaviorSubject<FormConfig>(MASTER_CONFIG);
+  masterConfig$ = new BehaviorSubject<Config>(MASTER_CONFIG);
 
   constructor(private formService: FormService) {}
 
@@ -47,7 +47,7 @@ export class ObjectMapperService {
         return this.createButton(values);
       }
       default: {
-        return {} as FormField<string>;
+        return {} as Field<string>;
       }
     }
   }
@@ -164,8 +164,8 @@ export class ObjectMapperService {
     return validators;
   }
 
-  createFormField(values: { [key: string]: any }): FormField<string> {
-    return new FormField<string>({
+  createFormField(values: { [key: string]: any }): Field<string> {
+    return new Field<string>({
       appearance: values['appearance'],
       classes: values['classes'],
       color: values['color'],

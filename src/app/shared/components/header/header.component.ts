@@ -17,6 +17,7 @@ export class HeaderComponent {
   lightSrc = '../../../../assets/icons/sun.png';
   currentTheme$ = this.themeService.currentThemeClass$;
   LIGHT_THEME = ThemeEnum.Light;
+  LIB_VERSION = LIB_VERSION;
 
   constructor(private themeService: ThemeService) {}
 

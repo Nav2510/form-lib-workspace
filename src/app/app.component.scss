@@ -1,13 +1,8 @@
-@import '../styles';
+@import '../assets/styles/variables.scss';
+
 .flw-app-container{
   transition: $theme-transition;
   position: relative;
-  .flw-lib-version {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    margin: 10px 20px;
-  }
 }
 
 .flw-app-container.flw-light-theme {

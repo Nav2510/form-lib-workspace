@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/variables.scss';
 
 .flw-header {
   color: $black-000;
@@ -8,6 +8,10 @@
   position: relative;
   z-index: 10;
   transition: $theme-transition;
+  .flw-lib-version {
+    font-size: 20px;
+    margin: 10px 30px;
+  }
   .flw-logo-wrapper {
     display: flex;
     align-items: center;
@@ -29,6 +33,9 @@
     .flw-theme-btn {
       margin-right: 20px;
     }
+  }
+  .flw-link {
+    display: flex;
   }
   .flw-npm-link {
     img {

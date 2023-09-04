@@ -1,47 +1,4 @@
-// Font styles
-$font-iceland: 'Iceland', cursive;
-
-// Light Theme Color palette
-$blue-900: #3452B4;
-$blue-500: #667EFC;
-$blue-200: #AFB3D4;
-
-$black-900: #000000;
-$black-800: #424242;
-$black-700: #B1B1B1;
-$black-500: #D8D8D8;
-$black-400: #D6D6D6;
-$black-300: #E5E5E5;
-$black-200: #ECECEC;
-$black-000: #FFFFFF;
-
-// Dark Theme Color Palette
-$night-blue-900: #00071D;
-$night-blue-800: #051138;
-$night-blue-850: #131b36;
-$night-blue-700: #242C46;
-$night-blue-600: #283358;
-$night-blue-500: #30374B;
-$night-blue-400: #62698C;
-$night-blue-200: #a6b0e0;
-
-$night-light-pink: #F46060;
-
-$night-black-700: #747474;
-$night-black-500: #C4C4C4;
-$night-black-300: #DADADA;
-$night-black-200: #E8E8E8;
-$night-black-000: #ffffff;
-
-// Theme color transition;
-$theme-transition: background-color 0.5s ease-out,
-  color 0.5s ease-out,
-  box-shadow 0.5s ease-out,
-  border-color 0.5s ease-out;
-
-// Hover color transition
-$hover-transition: background-color 0.2s ease-in-out;
-
+@import './assets/styles/variables.scss';
 
 // Global styles
 html,
