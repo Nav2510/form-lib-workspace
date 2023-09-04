@@ -17,7 +17,7 @@
                     </button>
                     {{optionIndex + 1}}: 
                     <mat-form-field appearance="outline">
-                      <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
+                      <input [id]="configItem.name" matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
                         [formControlName]="optionIndex" placeholder="{{configItem.placeholder}}">
                     </mat-form-field>
                   </div>
@@ -28,7 +28,7 @@
               </ng-container>
                 <ng-container *ngIf="!configItem.isAddable">
                   <mat-form-field appearance="outline">
-                    <input matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
+                    <input [id]="configItem.name" matInput [placeholder]="configItem.placeholder ?  configItem.placeholder : ''"
                       [formControlName]="configItem.name" placeholder="{{configItem.placeholder}}">
                   </mat-form-field>
                 </ng-container>
@@ -50,8 +50,8 @@
             </label>
             <div class="form-field-wrapper">
               <mat-form-field appearance="outline">
-                <mat-select class="flw-select" [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
-                  <mat-option class="flw-option" *ngFor="let option of configItem.options" [value]="option.value">
+                <mat-select [id]="configItem.name" class="flw-select" [multiple]="configItem.multi" [placeholder]="configItem.placeholder ?  configItem.placeholder : ''" [formControlName]="configItem.name">
+                  <mat-option [id]="option.value" class="flw-option" *ngFor="let option of configItem.options" [value]="option.value">
                     {{option.label}}
                   </mat-option>
                 </mat-select>

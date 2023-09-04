@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormConfig } from 'ngx-form-lib';
+import { Config } from 'ngx-form-lib';
 import {
   MatSnackBar
 } from '@angular/material/snack-bar';
@@ -16,7 +16,7 @@ export class ConfigurationViewerComponent {
 
   constructor(private readonly mapperService: ObjectMapperService, private readonly snackBar: MatSnackBar) { }
 
-  downloadFile(data: FormConfig | null): void {
+  downloadFile(data: Config | null): void {
     const downloadLink = window.document.createElement('a');
 
     downloadLink.href = window.URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/txt' }));
@@ -33,7 +33,7 @@ export class ConfigurationViewerComponent {
     this.openSnackBar();
   }
 
-  stringifyData(config: FormConfig | null): string {
+  stringifyData(config: Config | null): string {
     return JSON.stringify(config, null, 2);
   }
 

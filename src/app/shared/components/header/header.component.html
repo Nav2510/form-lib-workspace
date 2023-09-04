@@ -4,10 +4,11 @@
     <span class="flw-site-name">NgxFormLib</span>
   </div>
   <div class="flw-actions-wrapper">
+    <div class="flw-lib-version">{{ LIB_VERSION }}</div>
     <button (click)="toggleTheme()" class="flw-theme-btn" mat-icon-button aria-label="Theme toggler">
       <img [src]="(currentTheme$ | async) === LIGHT_THEME ? lightSrc: nightSrc" alt="Theme logo">
     </button>
-    <a class="flw-npm-link" [href]="npmLink"><img src="../../../../assets/icons/npm.png" alt="Npm package link"></a>
-    <a [href]="githubLink"><img src="../../../../assets/icons/github.svg" alt="Github repo link"></a>
+    <a class="flw-link flw-npm-link" [href]="npmLink"><img src="../../../../assets/icons/npm.png" alt="Npm package link"></a>
+    <a class="flw-link" [href]="githubLink"><img src="../../../../assets/icons/github.svg" alt="Github repo link"></a>
   </div>
 </div>
