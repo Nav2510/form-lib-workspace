@@ -39,7 +39,7 @@ export const MASTER_CONFIG: Config = {
             classes: ['ngf-col-12'],
             name: 'set_value',
             label: 'Set Form type to Dynamic',
-            order: 2
+            order: 2,
           }),
         }),
         new Dropdown({
@@ -52,12 +52,14 @@ export const MASTER_CONFIG: Config = {
             placeholder: 'Select form type',
             value: '',
             facets: {
-              dependencies: [{
-                fieldPath: 'set_value',
-                type: 'value-change',
-                value: true,
-                setDependentValueTo: 'dynamic'
-              }]
+              dependencies: [
+                {
+                  fieldPath: 'set_value',
+                  type: 'value-change',
+                  value: true,
+                  setDependentValueTo: 'dynamic',
+                },
+              ],
             },
             validators: [
               {
@@ -83,7 +85,7 @@ export const MASTER_CONFIG: Config = {
             classes: ['ngf-col-6'],
             name: 'disable_input',
             label: 'Disable input text',
-            order: 10
+            order: 10,
           }),
         }),
         new Checkbox({
@@ -114,7 +116,7 @@ export const MASTER_CONFIG: Config = {
                   type: 'hidden',
                   value: true,
                   setDependentValueTo: true,
-                }
+                },
               ],
             },
             classes: ['ngf-col-12'],
