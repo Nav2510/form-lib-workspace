@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Config } from 'ngx-form-lib';
-import {
-  MatSnackBar
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 import { ObjectMapperService } from '../../../../shared/services/object-mapper.service';
 
@@ -11,16 +10,25 @@ import { ObjectMapperService } from '../../../../shared/services/object-mapper.s
   templateUrl: './configuration-viewer.component.html',
   styleUrls: ['./configuration-viewer.component.scss'],
 })
-export class ConfigurationViewerComponent {
-  config$ = this.mapperService.masterConfig$;
+export class ConfigurationViewerComponent implements OnInit {
+  config$!: Observable<Config | null>;
 
-  constructor(private readonly mapperService: ObjectMapperService, private readonly snackBar: MatSnackBar) { }
+  constructor(
+    private readonly mapperService: ObjectMapperService,
+    private readonly snackBar: MatSnackBar
+  ) {}
+
+  ngOnInit(): void {
+    this.config$ = this.mapperService.masterConfig$;
+  }
 
   downloadFile(data: Config | null): void {
     const downloadLink = window.document.createElement('a');
 
-    downloadLink.href = window.URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/txt' }));
-    downloadLink.download = "ngx-form-lib-configuration.txt";
+    downloadLink.href = window.URL.createObjectURL(
+      new Blob([JSON.stringify(data, null, 2)], { type: 'application/txt' })
+    );
+    downloadLink.download = 'ngx-form-lib-configuration.txt';
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);

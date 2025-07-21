@@ -10,11 +10,11 @@ export class FormService {
   reset$ = new EventEmitter<void>();
 
   initForm(config: FormModel[]): FormGroup {
-    const obj: { [key: string]: FormControl | FormArray } = {};
+    const obj: { [key: string]: FormControl<any> | FormArray<any> } = {};
 
     config.forEach((configItem) => {
       if (configItem.isAddable) {
-        obj[configItem.name] = new FormArray([])
+        obj[configItem.name] = new FormArray<any>([]);
       } else {
         obj[configItem.name] = new FormControl(
           configItem.value,

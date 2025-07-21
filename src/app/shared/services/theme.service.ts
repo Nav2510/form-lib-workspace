@@ -4,20 +4,23 @@ import { BehaviorSubject } from 'rxjs';
 import { ThemeEnum } from '../enums/theme.enum';
 import { StorageService } from './storage.service';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-  currentThemeClass$ = new BehaviorSubject<string>(this.getStoredTheme());
+  currentThemeClass$ = new BehaviorSubject<string>('');
 
-  constructor(private storageService: StorageService) {}
+  constructor(private readonly storageService: StorageService) {
+    this.currentThemeClass$.next(this.getStoredTheme());
+  }
 
   toggleTheme(): void {
     this.currentThemeClass$.next(
-      this.currentThemeClass$.getValue() === ThemeEnum.Dark ? ThemeEnum.Light : ThemeEnum.Dark
+      this.currentThemeClass$?.getValue() === ThemeEnum.Dark
+        ? ThemeEnum.Light
+        : ThemeEnum.Dark
     );
-    this.storeTheme(this.currentThemeClass$.getValue())
+    this.storeTheme(this.currentThemeClass$?.getValue() ?? ThemeEnum.Light);
   }
 
   storeTheme(theme: string): void {
@@ -25,7 +28,7 @@ export class ThemeService {
   }
 
   getStoredTheme(): string {
-     const loadedTheme = this.storageService.getItem('theme');
+    const loadedTheme = this.storageService?.getItem('theme');
     return loadedTheme ? loadedTheme : ThemeEnum.Light;
   }
 }
